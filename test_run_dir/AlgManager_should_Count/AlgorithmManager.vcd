@@ -1,0 +1,325 @@
+$date
+2025-06-19T19:53+0000
+$end
+$version
+0.2
+$end
+$comment
+
+$end
+$timescale 1ns  $end
+$scope module AlgorithmManager $end
+ $var wire 1 ! io_in_Permutation_0 $end
+ $var wire 1 " io_in_Permutation_1 $end
+ $var wire 1 # io_in_Permutation_2 $end
+ $var wire 1 $ io_in_Permutation_3 $end
+ $var wire 1 % io_in_Permutation_4 $end
+ $var wire 1 & io_out_endofAlg $end
+ $var wire 1 ' stop $end
+ $var wire 1 ( reset $end
+ $var wire 1 ) io_out_en_QGP_r_5 $end
+ $var wire 1 * io_out_en_QGP_r_4 $end
+ $var wire 1 + io_out_en_QGP_r_3 $end
+ $var wire 3 , quantumGate_0 $end
+ $var wire 1 - io_out_en_QGP_r_2 $end
+ $var wire 1 . io_out_en_QGP_r_1 $end
+ $var wire 1 / io_out_en_QSR_r_1 $end
+ $var wire 1 0 io_out_en_QSR_r_2 $end
+ $var wire 3 1 quantumGate_2 $end
+ $var wire 3 2 quantumGate_1 $end
+ $var wire 3 3 quantumGate_4 $end
+ $var wire 3 4 io_in_Gate_4 $end
+ $var wire 3 5 quantumGate_3 $end
+ $var wire 3 6 io_in_Gate_3 $end
+ $var wire 3 7 io_in_Gate_2 $end
+ $var wire 3 8 io_in_Gate_1 $end
+ $var wire 3 9 io_in_Gate_0 $end
+ $var wire 1 : io_out_en_QSR $end
+ $var wire 1 ; io_out_newState $end
+ $var wire 3 < io_out_sel_gate $end
+ $var wire 1 = en_new_values $end
+ $var wire 1 > selPermutation_4 $end
+ $var wire 1 ? selPermutation_3 $end
+ $var wire 32 @ io_in_QSV_0 $end
+ $var wire 32 A io_in_QSV_1 $end
+ $var wire 32 B io_in_QSV_2 $end
+ $var wire 32 C io_in_QSV_3 $end
+ $var wire 1 D clock $end
+ $var wire 1 E next $end
+ $var wire 3 F cntEventsReg $end
+ $var wire 1 G io_in_en_newData $end
+ $var wire 1 H io_out_en_QGP_r $end
+ $var wire 1 I io_in_en_next $end
+ $var wire 1 J io_out_en_QGP $end
+ $var wire 2 K io_out_sel_permutation $end
+ $var wire 1 L io_out_en_QSR_r $end
+ $var wire 32 M io_out_QSV_0 $end
+ $var wire 32 N io_out_QSV_1 $end
+ $var wire 32 O io_out_QSV_2 $end
+ $var wire 32 P io_out_QSV_3 $end
+ $var wire 1 Q selPermutation_2 $end
+ $var wire 1 R selPermutation_1 $end
+ $var wire 1 S selPermutation_0 $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+00
+0:
+0;
+0=
+0>
+0?
+0D
+0E
+0G
+0H
+0I
+0J
+0L
+0Q
+0R
+0S
+b000 F
+b000 7
+b000 6
+b000 9
+b000 8
+b000 3
+b000 2
+b000 5
+b000 4
+b000 <
+b00000000000000000000000000000000 M
+b00000000000000000000000000000000 C
+b00000000000000000000000000000000 B
+b000 1
+b00000000000000000000000000000000 A
+b000 ,
+b00000000000000000000000000000000 @
+0!
+0"
+0#
+0$
+0%
+0&
+b00 K
+0'
+0(
+0)
+0*
+0+
+b00000000000000000000000000000000 O
+0-
+b00000000000000000000000000000000 N
+0.
+0/
+b00000000000000000000000000000000 P
+$end
+#0
+1(
+#1
+1D
+1&
+1'
+#6
+1"
+1$
+b111 4
+0D
+b001 6
+0(
+b001 8
+#11
+1D
+#16
+0D
+1G
+#21
+1D
+1:
+1;
+1=
+#26
+0D
+0G
+#31
+1D
+0&
+0'
+1H
+b001 2
+1R
+b111 3
+b001 5
+0:
+0;
+0=
+1?
+#36
+0D
+#41
+1D
+0H
+1.
+#46
+0D
+#51
+1D
+1-
+0.
+#56
+0D
+1I
+#61
+1D
+1E
+1+
+0-
+#66
+0D
+0I
+#71
+1D
+0E
+b001 F
+1H
+1*
+0+
+b01 K
+b001 <
+1L
+#76
+0D
+#81
+1D
+0H
+1)
+0*
+1J
+0L
+1.
+1/
+#86
+0D
+1I
+#91
+10
+1D
+1E
+0)
+1:
+0J
+1-
+0.
+0/
+#96
+0D
+0I
+#101
+00
+1D
+0E
+b010 F
+1H
+0:
+1+
+b00 K
+b000 <
+1L
+0-
+#106
+0D
+#111
+1D
+0H
+1*
+0+
+0L
+1.
+1/
+#116
+0D
+1I
+#121
+10
+1D
+1E
+1)
+0*
+1:
+1J
+1-
+0.
+0/
+#126
+0D
+0I
+#131
+1D
+0E
+b011 F
+1H
+0)
+0J
+1+
+b01 K
+1L
+0-
+00
+0:
+b001 <
+#136
+0D
+#141
+1D
+0H
+1*
+0+
+0L
+1.
+1/
+#146
+0D
+1I
+#151
+10
+1D
+1E
+1)
+0*
+1:
+1J
+1-
+0.
+0/
+#156
+0D
+0I
+#161
+1D
+0E
+b100 F
+1H
+0)
+0J
+1+
+b00 K
+1L
+0-
+00
+0:
+b111 <
+#166
+0D
+#171
+1D
+1&
+1'
+0H
+1*
+0+
+0L
+1.
+1/
+#176
+0D
