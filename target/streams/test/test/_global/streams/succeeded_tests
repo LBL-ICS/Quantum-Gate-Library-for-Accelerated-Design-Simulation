@@ -1,0 +1,37 @@
+#Successful Tests
+#Thu Jun 19 15:44:05 CDT 2025
+QSU_Test.Gates.TestNo_Op=1750362809154
+QSU_Test.QSU_Architecture.QGPTest1=1750362809152
+QSU_Test.Gates.TestPauliY=1750362809143
+QSU_Test.Gates.TestPauliZ=1750362809195
+GateTest.TestSGate=1750208825799
+GateTest.Com_Conj_Mult=1750171466242
+QSU_Test.QSU_Architecture.QGPMuxLayerCheck=1750362809235
+QSU_Test.Gates.TestInverseSGate=1750362809273
+GateTest.TestToffoli=1750208825750
+GateTest.TestCNOT=1750208825726
+QSU_Test.QSU_Architecture.AlgManager_Test2=1750362809191
+QSU_Test.permutationTest=1750208825765
+QSU_Test.QSU_Architecture.AlgManager_Test1=1750362809136
+QSU_Test.Gates.TestToffoli=1750362809189
+GateTest.TestEXPauliZ=1750188142674
+QSU_Test.QSU_Architecture.Permutation_Test=1750362809152
+GateTest.TestEXPauliY=1750186498269
+GateTest.TestNo_Op=1750208825767
+QSU_Test.QGPMuxLayerCheck=1750261390037
+QSU_Test.QSU_Architecture.AlgManager_Test=1750344007050
+QSU_Test.Gates.TestCNOT=1750362809145
+QSU_Test.QSU_Architecture.QSR_Test=1750362809156
+GateTest.TestInverseSGate=1750208825726
+QSU_Test.Gates.TestCPauliZ=1750362809191
+QSU_Test.QSU_Test1=1750365845320
+QSU_Test.QGPTest1=1750277036616
+QSU_Test.Gates.TestCPauliY=1750362809141
+QSU_Test.Gates.TestPauliX=1750362809156
+GateTest.TestPauliY=1750208825751
+GateTest.TestPauliX=1750208825754
+QSU_Test.QSU_Architecture.permutation_Test=1750351930558
+QSU_Test.Gates.TestSGate=1750362809274
+GateTest.TestCPauliZ=1750208825763
+GateTest.TestCPauliY=1750208825702
+GateTest.TestPauliZ=1750208825726
