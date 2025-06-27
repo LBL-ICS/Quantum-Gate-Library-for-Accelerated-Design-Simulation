@@ -1,105 +1,135 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestPauliZ, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestInverseSGate, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestCNOT, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestCPauliY, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.Permutation_Test, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Test1, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestPauliX, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.QGPMuxLayerCheck, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.QSR_Test, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestSGate, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestToffoli, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestNo_Op, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestPauliY, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.QGPTest1, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.AlgManager_Test2, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestCPauliZ, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.AlgManager_Test1, org.scalatest.tools.Framework$$anon$1@1823099a, false, [SuiteSelector])[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mQSU_Test1:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mQSU[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should DoGateOperations *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.IndexOutOfBoundsException: 2 is out of bounds (min 0, max 1)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at ... ()[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.QSU_Architecture.QGP.$anonfun$new$18(QuantumGatePool.scala:81)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:190)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.QSU_Architecture.QGP.<init>(QuantumGatePool.scala:76)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.TopQSU.$anonfun$gatePool$2(Top_QSU.scala:24)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at chisel3.Module$.evaluate(Module.scala:88)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at chisel3.Module$.do_apply(Module.scala:35)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.TopQSU.$anonfun$gatePool$1(Top_QSU.scala:24)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at chisel3.internal.plugin.package$.autoNameRecursively(package.scala:33)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.TopQSU.<init>(Top_QSU.scala:24)[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestCNOT, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestNo_Op, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.QGPTest1, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.Permutation_Test.PermutationMux1_Test, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.QGPMuxLayerCheck, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.Permutation_Test.StackedMuxPermutation_Test, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestHadamard, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.Permutation_Test.PermutationMux0_Test, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestSGate, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestPauliX, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.AlgManager_Test2, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestCPauliY, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestPauliY, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestPauliZ, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestCPauliZ, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.AlgManager_Test1, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mStackedMuxPermutation_Test:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31mQSU_Test.QSU_Architecture.Permutation_Test.StackedMuxPermutation_Test *** ABORTED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.util.NoSuchElementException: None.get[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.None$.get(Option.scala:627)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.None$.get(Option.scala:626)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at chiseltest.ChiselScalatestTester$TestBuilder.getTestName(ChiselScalatestTester.scala:26)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at chiseltest.ChiselScalatestTester$TestBuilder.finalAnnos(ChiselScalatestTester.scala:34)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at chiseltest.ChiselScalatestTester$TestBuilder.apply(ChiselScalatestTester.scala:30)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at QSU_Test.QSU_Architecture.Permutation_Test.StackedMuxPermutation_Test.<init>(PermutationMux_Test.scala:88)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestCPauliY:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mCPauliY[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Switch&TurnImaginarySecondVector[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestToffoli:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mToffoli[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchLast[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestCPauliZ:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mCPauliZ[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should MakeVeryLastNegative[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestNo_Op:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager_Test2:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should sendEnProperly[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mNo_Op[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestPauliZ:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mPauliZ[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Make1Negative[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should DoNothing[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mQSR_Test:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mRegister[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should ProperlyUpdate[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestCNOT:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mQGPMuxLayerCheck:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mMuxLayer[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchBetweenVectors[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mCNOT[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchSecond[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Test1, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestInverseSGate, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPermutationMux1_Test:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mpermutation1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should GeneratePattern *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.IndexOutOfBoundsException: 5 is out of bounds (min 0, max 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at ... ()[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.QSU_Architecture.Permutation_Designs.permutationLayer.$anonfun$new$11(AlgorithmMuxLayers.scala:97)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:190)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.QSU_Architecture.Permutation_Designs.permutationLayer.$anonfun$new$10(AlgorithmMuxLayers.scala:95)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:190)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.QSU_Architecture.Permutation_Designs.permutationLayer.$anonfun$new$9(AlgorithmMuxLayers.scala:94)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:190)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at QuantumStateUnit.QSU_Architecture.Permutation_Designs.permutationLayer.<init>(AlgorithmMuxLayers.scala:93)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at QSU_Test.QSU_Architecture.Permutation_Test.PermutationMux1_Test.$anonfun$new$6(PermutationMux_Test.scala:55)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at ... ()[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.Gates.TestToffoli, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.QSU_Architecture.QSR_Test, org.scalatest.tools.Framework$$anon$1@5131b1c3, false, [SuiteSelector])[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mTestPauliX:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mPauliX[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should Switch[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mPermutation_Test:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mpermutation[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should GeneratePattern[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mQGPTest1:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mGates[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should GenerateNewState[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestPauliY:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mPauliY[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchAndBecomeImaginary[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager_Test1:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Count[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mTestInverseSGate:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mInverseSGate[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Make1NegativeImaginary[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mTestSGate:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mSGate[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should Make1Imaginary[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 7 seconds, 857 milliseconds.[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 17[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 17, aborted 0[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 16, failed 1, canceled 0, ignored 0, pending 0[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m*** 1 TEST FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestCPauliY:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCPauliY[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Switch&TurnImaginarySecondVector[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mQGPTest1:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGates[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should GenerateNewState[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestNo_Op:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mQGPMuxLayerCheck:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mMuxLayer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchBetweenVectors[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNo_Op[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestPauliY:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPauliY[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchAndBecomeImaginary[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should DoNothing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager_Test1:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Count[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPermutationMux0_Test:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mpermutation0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should GeneratePattern[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestPauliZ:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPauliZ[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Make1Negative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestCPauliZ:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCPauliZ[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should MakeVeryLastNegative[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestCNOT:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCNOT[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchSecond[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager_Test2:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAlgManager[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should sendEnProperly *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  In step 2: io_out_newState=false (0, 0x0) did not equal expected=true (1, 0x1) at (AlgManager_Test.scala:141) (AlgManager_Test.scala:141)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestInverseSGate:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mInverseSGate[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Make1NegativeImaginary[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestToffoli:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mToffoli[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should SwitchLast[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mQSR_Test:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mRegister[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should ProperlyUpdate[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mQSU_Test1:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mQSU[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should DoGateOperations[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTestHadamard:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mHadamard[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should PutIntoSuperposition *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  In step 21: io_out_0=201341352 (0xc0039a8) did not equal expected=967311360 (0x39a80000) at (FPUGatePool_Test.scala:26) (FPUGatePool_Test.scala:26)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 14 seconds, 257 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 19[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 19, aborted 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 16, failed 3, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 1 SUITE ABORTED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 3 TESTS FAILED ***[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Test1[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestPauliZ[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Architecture.QGPMuxLayerCheck[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Architecture.AlgManager_Test1[0m
-[0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Architecture.AlgManager_Test2[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestInverseSGate[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestSGate[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestPauliX[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestCPauliY[0m
-[0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Architecture.Permutation_Test[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestToffoli[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Architecture.QSR_Test[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestPauliY[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestCPauliZ[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestCNOT[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Architecture.Permutation_Test.PermutationMux0_Test[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.QSU_Architecture.QGPTest1[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.Gates.TestNo_Op[0m
 [0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
-[0m[[0m[31merror[0m] [0m[0m	QSU_Test.QSU_Test1[0m
+[0m[[0m[31merror[0m] [0m[0m	QSU_Test.QSU_Architecture.AlgManager_Test2[0m
+[0m[[0m[31merror[0m] [0m[0m	QSU_Test.Gates.TestHadamard[0m
+[0m[[0m[31merror[0m] [0m[0m	QSU_Test.QSU_Architecture.Permutation_Test.PermutationMux1_Test[0m
+[0m[[0m[31merror[0m] [0m[0mError during tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	QSU_Test.QSU_Architecture.Permutation_Test.StackedMuxPermutation_Test[0m
 [0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m

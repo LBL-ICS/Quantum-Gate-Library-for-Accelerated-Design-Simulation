@@ -1,8 +1,11 @@
-package QuantumStateUnit.QSU_Architecture
+package QuantumStateUnit.QSU_Architecture.Controller_Designs
 
 import chisel3._
 import chisel3.util._
+
 import scala.math._
+
+//OLD, not updated
 
 //Algorithm Manager
 /*
@@ -12,7 +15,7 @@ import scala.math._
 
   Note: check the Quantum Gate Pool for num_of_gates.
  */
-class AlgorithmManager(num_of_qubits : Int, bit_width : Int, Alg_length : Int, pd : Int, num_of_gates : Int) extends Module{
+class AlgorithmManager(num_of_qubits : Int, bit_width : Int, Alg_length : Int, num_of_gates : Int) extends Module{
   val io = IO(new Bundle{
     val in_QSV              = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
     val in_Permutation      = Input(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W)))
@@ -36,19 +39,39 @@ class AlgorithmManager(num_of_qubits : Int, bit_width : Int, Alg_length : Int, p
   next            := Mux(stop, 0.B, io.in_en_next)
   io.out_endofAlg := stop
 
-  //Mux that request to replace current finished algorithm with new values
-  val en_new_values = RegInit(false.B)
-  en_new_values     := Mux(stop, io.in_en_newData, 0.B)
 
+
+  //Mux that request to replace current finished algorithm with new values
+  val en_new_values = Mux(stop, io.in_en_newData, 0.B) //doesn't apply to counting
+  /*
+  The 'enable' should be 1.B until there is acknowledgement that the gate pool has finished through its calculation
+   Waits until through both permutation blocks
+   This is so that the FPU units may get a constant enable, so it can finish the calculations.
+   */
+  val prev   = RegInit(false.B)
+  val enable = RegInit(false.B)
+  prev       := next
+  //when new values or when next changes: Flip Quantum Gate Pool enable.
+  when(en_new_values || (next^prev)){
+    enable := ~enable
+  }
+  io.out_en_QGP     := ShiftRegister(enable, 1)
+
+  /*
+  When 'enable' changes to 1.B, the QSV and counter needs to update.
+    They should not change after 'enable' shifts to 0.B
+   */
+  val update = Mux(prev, 0.B, next) //Cuts the 1.B short
   //The outputs to update the QSR and prepare QGP
   io.out_QSV        := io.in_QSV
   io.out_newState   := en_new_values
-  io.out_en_QSR     := en_new_values | ShiftRegister(next, pd) //Waits until through reverse permutation
-  io.out_en_QGP     := ShiftRegister(next | en_new_values, 2*pd)//Waits until through both permutation blocks
+  io.out_en_QSR     := en_new_values | ShiftRegister(update, 1) //Waits until through reverse permutation
+
+
 
   //The Counter: keeps track of what the output gate and permutation should be
   val cntEventsReg = RegInit (0.U(ceil(log(Alg_length)/log(2)).toInt.W))
-  when(next) {
+  when(update) {
     cntEventsReg := cntEventsReg + 1.U
   }
 
@@ -57,6 +80,8 @@ class AlgorithmManager(num_of_qubits : Int, bit_width : Int, Alg_length : Int, p
     cntEventsReg := 0.U
     stop         := 0.B
   }
+
+
 
   //Registers for the Algorithm
   val quantumGate       = Reg(Vec(Alg_length, UInt(ceil(log(num_of_gates)/log(2)).toInt.W)))
@@ -73,6 +98,7 @@ class AlgorithmManager(num_of_qubits : Int, bit_width : Int, Alg_length : Int, p
   //END OF ALGORITHM WHEN GATE REGISTER SENDS ONLY 1's
   //May potentially cause future errors if not handled correctly!!!
   when(io.out_sel_gate.andR){ //final gate should be all 1's
-    stop  := 1.B
+    stop   := 1.B
+    enable := 0.B
   }
 }

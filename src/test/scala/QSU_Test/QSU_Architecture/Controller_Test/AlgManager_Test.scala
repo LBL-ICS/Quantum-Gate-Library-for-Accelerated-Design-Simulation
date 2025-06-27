@@ -1,6 +1,6 @@
-package QSU_Test.QSU_Architecture
+package QSU_Test.QSU_Architecture.Controller_Test
 
-import QuantumStateUnit.QSU_Architecture._
+import QuantumStateUnit.QSU_Architecture.Controller_Designs.AlgorithmManager
 import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
@@ -15,7 +15,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 //Test the counter, to ensure that the correct permutation and gate is outputed
 class AlgManager_Test1 extends AnyFlatSpec with ChiselScalatestTester {
   "AlgManager" should "Count" in
-    test(new AlgorithmManager(2, 32, 5, 3, 6)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new AlgorithmManager(2, 32, 5, 6)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
       //All Inputs and Output for algManager
       /*
         val in_QSV              = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
@@ -105,7 +105,7 @@ class AlgManager_Test1 extends AnyFlatSpec with ChiselScalatestTester {
 //Test the timing of when the manager sends en, to the QSR and gate-pool
 class AlgManager_Test2 extends AnyFlatSpec with ChiselScalatestTester {
     "AlgManager" should "sendEnProperly" in
-      test(new AlgorithmManager(2, 32, 5, 3, 6)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+      test(new AlgorithmManager(2, 32, 5, 6)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
           //All Inputs and Output for algManager
           /*
   val in_QSV              = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
@@ -129,6 +129,7 @@ class AlgManager_Test2 extends AnyFlatSpec with ChiselScalatestTester {
         }
         dut.io.in_Gate(4).poke("b111".U)
         dut.io.in_Permutation(4).poke(0.U)
+        dut.io.in_en_next.poke(0.B)
 
         //update registers with new values
         dut.clock.step()
@@ -142,23 +143,31 @@ class AlgManager_Test2 extends AnyFlatSpec with ChiselScalatestTester {
         dut.io.out_en_QGP.expect(0.B)
 
         //start the gates after initial delay
-        dut.clock.step(2*3)// 2 * pd where pd = 3
+        dut.clock.step(6)
         dut.io.out_en_QGP.expect(1.B)
-        dut.clock.step()
-        dut.io.out_en_QGP.expect(0.B)
 
         //Test the updating of registers after gate-pool finishes a calculation
         dut.clock.step()
         dut.io.in_en_next.poke(1.B)
+
+        //expect register to update
+        dut.clock.step(2)
+        dut.io.out_newState.expect(0.B)
+        dut.io.out_en_QSR.expect(1.B)
+        dut.io.out_en_QGP.expect(1.B) //still going through shift reg
+
+        //The QGP should stop being enabled
+        dut.clock.step()//QSR should stop sending an update
+        dut.io.out_newState.expect(0.B)
+        dut.io.out_en_QSR.expect(0.B)
+        dut.io.out_en_QGP.expect(0.B)
+
+        //0 going through the circuit
         dut.clock.step()
         dut.io.in_en_next.poke(0.B)
 
-        dut.clock.step(3) //pd = 3
-        dut.io.out_newState.expect(0.B)
-        dut.io.out_en_QSR.expect(1.B)
-        dut.io.out_en_QGP.expect(0.B)
-
-        dut.clock.step(3)//2*pd = 6
+        //When the input is 0, then send 1.B to do next gate calc
+        dut.clock.step(3)
         dut.io.out_newState.expect(0.B)
         dut.io.out_en_QSR.expect(0.B)
         dut.io.out_en_QGP.expect(1.B)

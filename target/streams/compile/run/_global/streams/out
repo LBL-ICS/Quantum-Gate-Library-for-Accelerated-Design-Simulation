@@ -1,18 +1,9 @@
-[0m[[0m[31merror[0m] [0m[0mchisel3.package$ExpectedHardwareException: bits to be indexed 'UInt<8>' must be hardware, not a bare Chisel type. Perhaps you forgot to wrap it in Wire(_) or IO(_)?[0m
+[0m[[0m[31merror[0m] [0m[0mchisel3.package$ChiselException: Connection between sink (QSUSelHold.io.out_sel_perm.0: IO[UInt<2>]) and source (QSUSelHold.holdPerm_0: Reg[UInt<2>]) failed @: io.out_sel_perm.0 in QSUSelHold cannot be written from module QSUSelHold.[0m
 [0m[[0m[31merror[0m] [0m[0m	at ... ()[0m
-[0m[[0m[31merror[0m] [0m[0m	at experimentalGate.turnNegative.$anonfun$new$5(experimentalGate.scala:34)[0m
-[0m[[0m[31merror[0m] [0m[0m	at chisel3.Data.$anonfun$$colon$eq$1(Data.scala:718)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)[0m
-[0m[[0m[31merror[0m] [0m[0m	at chisel3.experimental.prefix$.apply(prefix.scala:33)[0m
-[0m[[0m[31merror[0m] [0m[0m	at chisel3.Data.$colon$eq(Data.scala:718)[0m
-[0m[[0m[31merror[0m] [0m[0m	at experimentalGate.turnNegative.<init>(experimentalGate.scala:34)[0m
-[0m[[0m[31merror[0m] [0m[0m	at experimentalGate.EXPauli_Y.$anonfun$flipA$2(experimentalGate.scala:19)[0m
-[0m[[0m[31merror[0m] [0m[0m	at chisel3.Module$.evaluate(Module.scala:88)[0m
-[0m[[0m[31merror[0m] [0m[0m	at chisel3.Module$.do_apply(Module.scala:35)[0m
-[0m[[0m[31merror[0m] [0m[0m	at experimentalGate.EXPauli_Y.$anonfun$flipA$1(experimentalGate.scala:19)[0m
-[0m[[0m[31merror[0m] [0m[0m	at chisel3.internal.plugin.package$.autoNameRecursively(package.scala:33)[0m
-[0m[[0m[31merror[0m] [0m[0m	at experimentalGate.EXPauli_Y.<init>(experimentalGate.scala:19)[0m
-[0m[[0m[31merror[0m] [0m[0m	at Top_QSU.main$.$anonfun$new$10(Top_QSU.scala:56)[0m
+[0m[[0m[31merror[0m] [0m[0m	at QuantumStateUnit.QSU_Architecture.Controller_Designs.QSUSelHold.$anonfun$new$13(GateInputController.scala:77)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:190)[0m
+[0m[[0m[31merror[0m] [0m[0m	at QuantumStateUnit.QSU_Architecture.Controller_Designs.QSUSelHold.<init>(GateInputController.scala:75)[0m
+[0m[[0m[31merror[0m] [0m[0m	at QuantumStateUnit.main$.$anonfun$new$15(Top_QSU.scala:66)[0m
 [0m[[0m[31merror[0m] [0m[0m	at ... ()[0m
 [0m[[0m[31merror[0m] [0m[0m	at ... (Stack trace trimmed to user code only. Rerun with --full-stacktrace to see the full stack trace)[0m
-[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) chisel3.package$ExpectedHardwareException: bits to be indexed 'UInt<8>' must be hardware, not a bare Chisel type. Perhaps you forgot to wrap it in Wire(_) or IO(_)?[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) chisel3.package$ChiselException: Connection between sink (QSUSelHold.io.out_sel_perm.0: IO[UInt<2>]) and source (QSUSelHold.holdPerm_0: Reg[UInt<2>]) failed @: io.out_sel_perm.0 in QSUSelHold cannot be written from module QSUSelHold.[0m
