@@ -31,7 +31,7 @@ class nonFPUPool(val num_of_qubits : Int, val bit_width : Int) extends Module{
   val io = IO(new Bundle{
     val in_QSV    = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
     val in_sel    = Input(UInt(4.W))
-    val in_en     = Input(Bool())
+    val in_valid  = Input(Bool())
     val out_QSV   = Output(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
     val out_valid = Output(Bool())
   })
@@ -159,7 +159,7 @@ class nonFPUPool(val num_of_qubits : Int, val bit_width : Int) extends Module{
 
   //OUTPUT
   io.out_QSV   := muxLayer.io.out_QSV
-  io.out_valid := ShiftRegister(io.in_en, 1)
+  io.out_valid := ShiftRegister(io.in_valid, 1)
 }
 
 /*

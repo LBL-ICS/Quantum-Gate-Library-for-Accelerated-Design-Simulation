@@ -1,0 +1,292 @@
+$date
+2025-06-25T01:20+0000
+$end
+$version
+0.2
+$end
+$comment
+
+$end
+$timescale 1ns  $end
+$scope module AlgorithmManager $end
+ $var wire 1 ! io_in_Permutation_0 $end
+ $var wire 1 " io_in_Permutation_1 $end
+ $var wire 1 # prev $end
+ $var wire 1 $ io_in_Permutation_2 $end
+ $var wire 1 % io_in_Permutation_3 $end
+ $var wire 1 & io_in_Permutation_4 $end
+ $var wire 1 ' enable $end
+ $var wire 1 ( io_out_endofAlg $end
+ $var wire 1 ) stop $end
+ $var wire 1 * reset $end
+ $var wire 3 + quantumGate_0 $end
+ $var wire 3 , quantumGate_2 $end
+ $var wire 3 - quantumGate_1 $end
+ $var wire 3 . quantumGate_4 $end
+ $var wire 3 / io_in_Gate_4 $end
+ $var wire 3 0 quantumGate_3 $end
+ $var wire 3 1 io_in_Gate_3 $end
+ $var wire 3 2 io_in_Gate_2 $end
+ $var wire 3 3 io_in_Gate_1 $end
+ $var wire 3 4 io_in_Gate_0 $end
+ $var wire 1 5 io_out_en_QSR $end
+ $var wire 1 6 io_out_newState $end
+ $var wire 3 7 io_out_sel_gate $end
+ $var wire 1 8 en_new_values $end
+ $var wire 1 9 selPermutation_4 $end
+ $var wire 1 : selPermutation_3 $end
+ $var wire 32 ; io_in_QSV_0 $end
+ $var wire 32 < io_in_QSV_1 $end
+ $var wire 32 = io_in_QSV_2 $end
+ $var wire 32 > io_in_QSV_3 $end
+ $var wire 1 ? clock $end
+ $var wire 1 @ next $end
+ $var wire 1 A update $end
+ $var wire 3 B cntEventsReg $end
+ $var wire 1 C io_in_en_newData $end
+ $var wire 1 D io_out_en_QGP_r $end
+ $var wire 1 E io_in_en_next $end
+ $var wire 1 F io_out_en_QGP $end
+ $var wire 2 G io_out_sel_permutation $end
+ $var wire 1 H io_out_en_QSR_r $end
+ $var wire 32 I io_out_QSV_0 $end
+ $var wire 32 J io_out_QSV_1 $end
+ $var wire 32 K io_out_QSV_2 $end
+ $var wire 32 L io_out_QSV_3 $end
+ $var wire 1 M selPermutation_2 $end
+ $var wire 1 N selPermutation_1 $end
+ $var wire 1 O selPermutation_0 $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+b000 B
+05
+06
+08
+09
+0:
+0?
+b000 7
+0@
+b00000000000000000000000000000000 ;
+0A
+b00000000000000000000000000000000 =
+0C
+b00000000000000000000000000000000 <
+b000 3
+0D
+b000 2
+0E
+0F
+b000 4
+0H
+0M
+0N
+0O
+b00000000000000000000000000000000 K
+b00000000000000000000000000000000 J
+b00000000000000000000000000000000 L
+b00000000000000000000000000000000 I
+b000 /
+b000 .
+b000 1
+b000 0
+b000 +
+b00000000000000000000000000000000 >
+b000 -
+b000 ,
+0!
+0"
+b00 G
+0#
+0$
+0%
+0&
+0'
+0(
+0)
+0*
+$end
+#0
+1*
+#1
+1(
+1)
+1?
+#6
+b001 1
+1"
+b001 3
+1%
+0*
+b111 /
+0?
+#11
+1?
+#16
+1C
+15
+16
+18
+0?
+#21
+1'
+0(
+0)
+b001 -
+b111 .
+1N
+b001 0
+05
+06
+08
+1:
+1?
+#26
+0C
+0?
+#31
+1D
+1F
+1?
+#36
+0?
+#41
+1?
+#46
+0?
+#51
+1?
+#56
+1E
+0?
+#61
+1@
+1A
+1?
+#66
+0E
+0?
+#71
+0@
+0A
+b001 B
+1#
+15
+0'
+b001 7
+b01 G
+1H
+1?
+#76
+0?
+#81
+0#
+0D
+05
+0F
+1'
+0H
+1?
+#86
+1E
+0?
+#91
+1@
+1A
+1D
+1F
+1?
+#96
+0E
+0?
+#101
+0@
+0A
+b010 B
+1#
+15
+0'
+b000 7
+b00 G
+1H
+1?
+#106
+0?
+#111
+0#
+0D
+05
+0F
+1'
+0H
+1?
+#116
+1E
+0?
+#121
+1@
+1A
+1D
+1F
+1?
+#126
+0E
+0?
+#131
+0@
+0A
+b011 B
+1#
+15
+0'
+b001 7
+b01 G
+1H
+1?
+#136
+0?
+#141
+0#
+0D
+05
+0F
+1'
+0H
+1?
+#146
+1E
+0?
+#151
+1@
+1A
+1D
+1F
+1?
+#156
+0E
+0?
+#161
+0@
+0A
+b100 B
+1#
+15
+0'
+b111 7
+b00 G
+1H
+1?
+#166
+0?
+#171
+0#
+0D
+05
+0F
+1(
+0H
+1)
+1?
+#176
+0?

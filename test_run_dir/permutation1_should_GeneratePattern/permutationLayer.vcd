@@ -1,0 +1,367 @@
+$date
+2025-06-25T15:30+0000
+$end
+$version
+0.2
+$end
+$comment
+
+$end
+$timescale 1ns  $end
+$scope module permutationLayer $end
+ $var wire 1 2 reset $end
+ $var wire 1 3 tieVectorLayer $end
+ $var wire 3 S io_in_QSV_4 $end
+ $var wire 3 T io_in_QSV_5 $end
+ $var wire 3 U io_in_QSV_6 $end
+ $var wire 3 V io_in_QSV_7 $end
+ $var wire 3 W io_in_QSV_0 $end
+ $var wire 3 X io_in_QSV_1 $end
+ $var wire 3 Y io_in_QSV_2 $end
+ $var wire 3 [ io_in_QSV_3 $end
+ $var wire 1 e clock $end
+ $var wire 1 i untieVectorLayer $end
+ $var wire 3 j io_out_QSV_5 $end
+ $var wire 1 k muxLayer1 $end
+ $var wire 3 l io_out_QSV_6 $end
+ $var wire 3 m io_out_QSV_7 $end
+ $var wire 1 ~ io_in_sel $end
+ $var wire 3 "! io_out_QSV_0 $end
+ $var wire 3 "" io_out_QSV_1 $end
+ $var wire 3 "# io_out_QSV_2 $end
+ $var wire 3 "$ io_out_QSV_3 $end
+ $var wire 3 "% io_out_QSV_4 $end
+  $scope module tieVectorLayer.tieVector_0 $end
+  $upscope $end
+  $scope module tieVectorLayer.tieVector_1 $end
+  $upscope $end
+  $scope module tieVectorLayer.tieVector_2 $end
+  $upscope $end
+  $scope module tieVectorLayer.tieVector_3 $end
+  $upscope $end
+  $scope module tieVectorLayer $end
+   $var wire 3 ? io_in_QSV_7 $end
+   $var wire 3 A io_in_QSV_6 $end
+   $var wire 3 C io_in_QSV_5 $end
+   $var wire 3 E io_in_QSV_4 $end
+   $var wire 3 G io_in_QSV_3 $end
+   $var wire 3 I io_in_QSV_2 $end
+   $var wire 3 K io_in_QSV_1 $end
+   $var wire 3 L io_in_QSV_0 $end
+   $var wire 1 O tieVector_0 $end
+   $var wire 1 P tieVector_1 $end
+   $var wire 1 Q tieVector_2 $end
+   $var wire 1 R tieVector_3 $end
+   $var wire 6 ] io_out_QSV_2 $end
+   $var wire 6 ^ io_out_QSV_1 $end
+   $var wire 6 _ io_out_QSV_3 $end
+   $var wire 6 a io_out_QSV_0 $end
+    $scope module tieVector_0 $end
+     $var wire 3 & inputs_0 $end
+     $var wire 3 ' inputs_1 $end
+     $var wire 6 M io_out $end
+     $var wire 3 g io_in_0 $end
+     $var wire 3 h io_in_1 $end
+    $upscope $end
+    $scope module tieVector_2 $end
+     $var wire 3 ( io_in_0 $end
+     $var wire 3 , io_in_1 $end
+     $var wire 3 5 inputs_1 $end
+     $var wire 3 6 inputs_0 $end
+     $var wire 6 } io_out $end
+    $upscope $end
+    $scope module tieVector_1 $end
+     $var wire 3 ) inputs_1 $end
+     $var wire 3 * inputs_0 $end
+     $var wire 6 1 io_out $end
+     $var wire 3 z io_in_1 $end
+     $var wire 3 { io_in_0 $end
+    $upscope $end
+    $scope module tieVector_3 $end
+     $var wire 6 . io_out $end
+     $var wire 3 < io_in_0 $end
+     $var wire 3 > io_in_1 $end
+     $var wire 3 b inputs_0 $end
+     $var wire 3 c inputs_1 $end
+    $upscope $end
+  $upscope $end
+  $scope module untieVectorLayer.untieVector_3 $end
+  $upscope $end
+  $scope module muxLayer1 $end
+   $var wire 6 " io_in_QSV_1_1 $end
+   $var wire 6 # io_in_QSV_1_0 $end
+   $var wire 6 $ io_in_QSV_1_3 $end
+   $var wire 6 % io_in_QSV_1_2 $end
+   $var wire 6 7 io_out_QSV_3 $end
+   $var wire 6 8 io_out_QSV_0 $end
+   $var wire 6 9 io_out_QSV_1 $end
+   $var wire 6 : io_out_QSV_2 $end
+   $var wire 1 ` io_in_sel $end
+   $var wire 6 n io_in_QSV_0_2 $end
+   $var wire 6 o io_in_QSV_0_1 $end
+   $var wire 6 p io_in_QSV_0_3 $end
+   $var wire 6 t io_in_QSV_0_0 $end
+  $upscope $end
+  $scope module untieVectorLayer.untieVector_2 $end
+  $upscope $end
+  $scope module untieVectorLayer.untieVector_1 $end
+  $upscope $end
+  $scope module untieVectorLayer.untieVector_0 $end
+  $upscope $end
+  $scope module untieVectorLayer $end
+   $var wire 6 + io_in_QSV_3 $end
+   $var wire 6 - io_in_QSV_0 $end
+   $var wire 6 / io_in_QSV_2 $end
+   $var wire 6 0 io_in_QSV_1 $end
+   $var wire 3 ; io_out_QSV_1 $end
+   $var wire 3 = io_out_QSV_0 $end
+   $var wire 3 @ io_out_QSV_3 $end
+   $var wire 3 B io_out_QSV_2 $end
+   $var wire 3 D io_out_QSV_5 $end
+   $var wire 3 F io_out_QSV_4 $end
+   $var wire 3 H io_out_QSV_7 $end
+   $var wire 3 J io_out_QSV_6 $end
+   $var wire 1 q untieVector_3 $end
+   $var wire 1 r untieVector_2 $end
+   $var wire 1 s untieVector_1 $end
+   $var wire 1 u untieVector_0 $end
+    $scope module untieVector_2 $end
+     $var wire 6 ! io_in $end
+     $var wire 3 Z io_out_0 $end
+     $var wire 3 \ io_out_1 $end
+    $upscope $end
+    $scope module untieVector_1 $end
+     $var wire 3 4 io_out_1 $end
+     $var wire 6 d io_in $end
+     $var wire 3 f io_out_0 $end
+    $upscope $end
+    $scope module untieVector_0 $end
+     $var wire 6 N io_in $end
+     $var wire 3 w io_out_1 $end
+     $var wire 3 x io_out_0 $end
+    $upscope $end
+    $scope module untieVector_3 $end
+     $var wire 3 v io_out_0 $end
+     $var wire 3 y io_out_1 $end
+     $var wire 6 | io_in $end
+    $upscope $end
+  $upscope $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+02
+03
+0O
+0P
+0Q
+0R
+0`
+0e
+0i
+0k
+b000000 7
+0q
+0r
+b000000 9
+0s
+b000000 8
+0u
+b000000 :
+b000000 /
+b000000 .
+b000000 1
+b000000 0
+0~
+b000000 +
+b000000 -
+b000000 !
+b000000 #
+b000000 "
+b000000 %
+b000000 $
+b000000 }
+b000000 |
+b000000 o
+b000000 n
+b000000 p
+b000000 t
+b000 w
+b000 v
+b000 y
+b000 x
+b000000 _
+b000000 ^
+b000000 a
+b000 {
+b000 z
+b000000 d
+b000 g
+b000 f
+b000 h
+b000 c
+b000 b
+b000000 ]
+b000000 N
+b000 j
+b000 m
+b000 l
+b000 W
+b000 V
+b000 Y
+b000 X
+b000 S
+b000 U
+b000000 M
+b000 T
+b000 [
+b000 Z
+b000 \
+b000 G
+b000 F
+b000 I
+b000 H
+b000 C
+b000 B
+b000 E
+b000 D
+b000 K
+b000 J
+b000 L
+b000 6
+b000 "$
+b000 "%
+b000 ""
+b000 "#
+b000 5
+b000 "!
+b000 4
+b000 ?
+b000 >
+b000 A
+b000 @
+b000 ;
+b000 =
+b000 <
+b000 '
+b000 &
+b000 )
+b000 (
+b000 *
+b000 ,
+$end
+#0
+12
+#1
+1e
+#6
+b101100 !
+b101100 "
+b001000 #
+b111110 $
+b011010 %
+b001 '
+b100 (
+b011 )
+b010 *
+b111110 +
+b101 ,
+b001000 -
+b111110 .
+b101100 /
+b011010 0
+b011010 1
+02
+b011 4
+b101 5
+b100 6
+b111110 7
+b001000 8
+b011010 9
+b101100 :
+b001 ;
+b110 <
+b111 >
+b111 ?
+b011 @
+b001 ""
+b110 A
+b010 "#
+b010 B
+b011 "$
+b101 C
+b100 "%
+b101 D
+b100 E
+b100 F
+b011 G
+b111 H
+b010 I
+b110 J
+b001 K
+b001000 M
+b001000 N
+b100 S
+b101 T
+b110 U
+b111 V
+b001 X
+b010 Y
+b100 Z
+b011 [
+b101 \
+b101100 ]
+b011010 ^
+b111110 _
+b001000 a
+b110 b
+b111 c
+b011010 d
+0e
+b010 f
+b001 h
+b101 j
+b110 l
+b111 m
+b101100 n
+b011010 o
+b111110 p
+b001000 t
+b110 v
+b001 w
+b111 y
+b011 z
+b010 {
+b111110 |
+b101100 }
+#11
+1e
+#16
+0e
+#21
+1e
+#26
+b101 @
+1`
+b011010 !
+b100 "#
+b100 B
+b101 "$
+b010 "%
+b011 D
+b101100 d
+0e
+b010 F
+b100 f
+b011 j
+b011010 /
+b101100 0
+b101 4
+b101100 9
+b011010 :
+b010 Z
+b011 \
+1~
+#31
+1e
+#36
+0e

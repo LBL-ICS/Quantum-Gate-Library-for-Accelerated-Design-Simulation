@@ -1,6 +1,6 @@
 package QuantumStateUnit.Gates
 
-import QuantumStateUnit.Gates.flipMSB.turnNegative
+import QuantumStateUnit.OtherComponents.flipMSB.turnNegative
 import chisel3._
 import chisel3.util._
 //The number system used is the IEEE 754 format

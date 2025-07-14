@@ -1,0 +1,85 @@
+$date
+2025-06-25T01:20+0000
+$end
+$version
+0.2
+$end
+$comment
+
+$end
+$timescale 1ns  $end
+$scope module CPauli_Z $end
+ $var wire 1 " io_out_valid $end
+ $var wire 32 # io_in_0 $end
+ $var wire 32 $ io_in_1 $end
+ $var wire 32 % io_in_2 $end
+ $var wire 32 & io_in_3 $end
+ $var wire 1 ' flipG $end
+ $var wire 1 ( clock $end
+ $var wire 1 ) flipH $end
+ $var wire 1 * io_in_en $end
+ $var wire 1 + io_out_valid_r $end
+ $var wire 32 / io_out_2 $end
+ $var wire 32 0 io_out_3 $end
+ $var wire 32 1 io_out_0 $end
+ $var wire 1 2 reset $end
+ $var wire 32 3 io_out_1 $end
+  $scope module flipG $end
+   $var wire 16 , io_in $end
+   $var wire 16 - io_out $end
+  $upscope $end
+  $scope module flipH $end
+   $var wire 16 ! io_in $end
+   $var wire 16 . io_out $end
+  $upscope $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+b0000000000000000 !
+02
+b00000000000000000000000000000000 &
+b00000000000000000000000000000000 #
+b00000000000000000000000000000000 %
+b00000000000000000000000000000000 $
+b0000000000000000 -
+b0000000000000000 ,
+0"
+b0000000000000000 .
+0'
+0(
+b00000000000000000000000000000000 3
+0)
+0*
+0+
+b00000000000000000000000000000000 /
+b00000000000000000000000000000000 1
+b00000000000000000000000000000000 0
+$end
+#0
+12
+#1
+1(
+#6
+b0100000000000000 !
+b00111100000000000000000000000000 #
+b00000000000000000011110000000000 $
+b01000000000000000000000000000000 %
+b00000000000000000100000000000000 &
+0(
+b1100000000000000 .
+b01000000000000000000000000000000 /
+b00000000000000001100000000000000 0
+b00111100000000000000000000000000 1
+02
+b00000000000000000011110000000000 3
+#11
+1(
+#16
+0(
+1*
+#21
+1"
+1(
+1+
+#26
+0(

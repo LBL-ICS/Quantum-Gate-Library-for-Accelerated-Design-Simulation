@@ -1,7 +1,7 @@
 package QuantumStateUnit.Gates
 
-import QuantumStateUnit.Gates.flipMSB.turnNegative
 import Complex_FPU._
+import QuantumStateUnit.OtherComponents.flipMSB.turnNegative
 import chisel3._
 import chisel3.util._
 
@@ -33,7 +33,7 @@ class FPUPool(val num_of_qubits : Int, val bw :Int, val mult_pd : Int, val add_p
     val in_Ugate      =  Input(Vec(4, UInt(bw.W)))
     val in_normalize  =  Input(UInt(bw.W))
     val in_sel        =  Input(UInt(4.W))
-    val in_en         =  Input(Bool())
+    val in_valid      =  Input(Bool())
     val out_valid     = Output(Bool())
     val out_QSV       = Output(Vec(pow(2,num_of_qubits).toInt, UInt(bw.W)))
   })
@@ -173,13 +173,13 @@ class FPUPool(val num_of_qubits : Int, val bw :Int, val mult_pd : Int, val add_p
     FPUMultiplier(4*i+3).io.complexB := FPUInput3
     //Bool inputs
     FPUMultiplier(4*i  ).io.in_en    := 1.B
-    FPUMultiplier(4*i  ).io.in_valid := io.in_en
+    FPUMultiplier(4*i  ).io.in_valid := io.in_valid
     FPUMultiplier(4*i+1).io.in_en    := 1.B
-    FPUMultiplier(4*i+1).io.in_valid := io.in_en
+    FPUMultiplier(4*i+1).io.in_valid := io.in_valid
     FPUMultiplier(4*i+2).io.in_en    := 1.B
-    FPUMultiplier(4*i+2).io.in_valid := io.in_en
+    FPUMultiplier(4*i+2).io.in_valid := io.in_valid
     FPUMultiplier(4*i+3).io.in_en    := 1.B
-    FPUMultiplier(4*i+3).io.in_valid := io.in_en
+    FPUMultiplier(4*i+3).io.in_valid := io.in_valid
     //Attach Multiplier to the Adder
     FPUAdder(2*i  ).io.complexA      := FPUMultiplier(4*i  ).io.out_s
     FPUAdder(2*i  ).io.complexB      := FPUMultiplier(4*i+1).io.out_s
