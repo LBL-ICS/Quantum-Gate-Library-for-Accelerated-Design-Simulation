@@ -2,8 +2,6 @@ package QuantumStateUnit
 
 import QuantumStateUnit.Gates._
 import QuantumStateUnit.OtherComponents.PsuedoRandomGenerator._
-import QuantumStateUnit.QSU_Architecture.Controller_Designs.{AlgorithmManager, QSUController, QSUSelHold}
-import QuantumStateUnit.QSU_Architecture.Permutation_Designs._
 import QuantumStateUnit.QSU_Architecture._
 import chisel3._
 
@@ -31,8 +29,8 @@ class TopQSU(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd : Int, 
   })
   val manager     = Module(new QSUController)
   val gatePool    = Module(new QGP(num_of_qubits, bit_width, mult_pd, add_pd, L))
-  val permutation = Module(new StackedMuxPermutation(num_of_qubits, bit_width, Seq(0, 1, 2)))
-  val reversePerm = Module(new StackedMuxPermutation(num_of_qubits, bit_width, Seq(0, 1, 2)))
+  val permutation = Module(new StackedPermutationSwitchGrids(num_of_qubits, bit_width, Seq(0, 1, 2)))
+  val reversePerm = Module(new StackedPermutationSwitchGrids(num_of_qubits, bit_width, Seq(0, 1, 2)))
   val QSR         = Module(new QuantumStateRegister(num_of_qubits, bit_width))
   val hold        = Module(new QSUSelHold(num_of_qubits, Seq(0, 1, 2)))
 

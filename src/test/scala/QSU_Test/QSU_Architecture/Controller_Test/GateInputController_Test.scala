@@ -1,6 +1,7 @@
 package QSU_Test.QSU_Architecture.Controller_Test
 
-import QuantumStateUnit.QSU_Architecture.Controller_Designs.{AlgorithmManager, QSUController}
+import QuantumStateUnit.Old.AlgorithmManager
+import QuantumStateUnit.QSU_Architecture.QSUController
 import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
@@ -64,6 +65,12 @@ class ControllerTest extends AnyFlatSpec with ChiselScalatestTester {
         dut.io.out_readyFlag.expect(0.B)
         dut.io.out_update_QSR.expect(1.B)
         dut.io.out_replaceQSV.expect(0.B)
+
+      //stopped sending valid, and is now ready for the next set of inputs
+      dut.clock.step()
+      dut.io.in_replaceQSV.poke(0.U)
+      dut.io.in_applygate.poke(0.U)
+      dut.io.in_valid.poke(0.U)
 
       //finished all tasks and now flag for new input
       dut.clock.step()

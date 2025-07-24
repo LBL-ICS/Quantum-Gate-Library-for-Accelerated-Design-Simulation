@@ -53,7 +53,7 @@ class QGP(val num_of_qubits : Int, val bit_width :Int, val mult_pd : Int, val ad
 
   //connecting layers: in -> Gate -> mux -> out
   nonFPUGatepool.io.in_QSV  := io.in_QSV
-  FPUGatepool.io.in_QSV     := Mux(enNormalize, measure.io.out_QSV, io.in_QSV)
+  FPUGatepool.io.in_QSV     := Mux(io.in_sel === 31.U, measure.io.out_QSV, io.in_QSV)
   measure.io.in_QSV         := io.in_QSV
   outputmux.io.in_QSV(0)    := nonFPUGatepool.io.out_QSV
   outputmux.io.in_QSV(1)    := FPUGatepool.io.out_QSV

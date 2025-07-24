@@ -7,7 +7,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 
 class TestNo_Op extends AnyFlatSpec with ChiselScalatestTester {
   "No_Op" should "DoNothing" in
-    test(new No_op(1)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new No_op(1)) { dut =>
       dut.io.in(0).poke(0.U)
       dut.io.in(1).poke(1.U)
 
@@ -20,7 +20,7 @@ class TestNo_Op extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestPauliX extends AnyFlatSpec with ChiselScalatestTester {
   "PauliX" should "Switch" in
-    test(new Pauli_X(1)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new Pauli_X(1)) { dut =>
       dut.io.in(0).poke(0.U) //0
       dut.io.in(1).poke(1.U) //1
 
@@ -33,7 +33,7 @@ class TestPauliX extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestPauliY extends AnyFlatSpec with ChiselScalatestTester {
   "PauliY" should "SwitchAndBecomeImaginary" in
-    test(new Pauli_Y(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new Pauli_Y(32)) { dut =>
       dut.io.in(0).poke("h3c000000".U) //1 + j*0
       dut.io.in(1).poke("h00003c00".U) //0 + j*1
 
@@ -46,7 +46,7 @@ class TestPauliY extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestPauliZ extends AnyFlatSpec with ChiselScalatestTester {
   "PauliZ" should "Make1Negative" in
-    test(new Pauli_Z(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new Pauli_Z(32)) { dut =>
       dut.io.in(0).poke("h3c000000".U) //1 + j*0
       dut.io.in(1).poke("h3c000000".U) //1 + j*0
 
@@ -59,7 +59,7 @@ class TestPauliZ extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestSGate extends AnyFlatSpec with ChiselScalatestTester {
   "SGate" should "Make1Imaginary" in
-    test(new S_gate(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new S_gate(32)) { dut =>
       dut.io.in(0).poke("h3c000000".U) // 1 + j*0
       dut.io.in(1).poke("h40003c00".U) // 2 + j*1
 
@@ -72,7 +72,7 @@ class TestSGate extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestInverseSGate extends AnyFlatSpec with ChiselScalatestTester {
   "InverseSGate" should "Make1NegativeImaginary" in
-    test(new InverseS_gate(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new InverseS_gate(32)) { dut =>
       dut.io.in(0).poke("h3c000000".U) // 1 + j*0
       dut.io.in(1).poke("h40003c00".U) // 2 + j*1
 
@@ -92,7 +92,7 @@ class TestInverseSGate extends AnyFlatSpec with ChiselScalatestTester {
  */
 class TestCNOT extends AnyFlatSpec with ChiselScalatestTester {
     "CNOT" should "SwitchSecond" in
-      test(new CNOT(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+      test(new CNOT(32)) { dut =>
           dut.io.in(0).poke("h3c000000".U) // 1 + j*0
           dut.io.in(1).poke("h00003c00".U) // 0 + j*1
           dut.io.in(2).poke("h40000000".U) // 2 + j*0
@@ -109,7 +109,7 @@ class TestCNOT extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestCPauliY extends AnyFlatSpec with ChiselScalatestTester {
     "CPauliY" should "Switch&TurnImaginarySecondVector" in
-      test(new CPauli_Y(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+      test(new CPauli_Y(32)) { dut =>
           dut.io.in(0).poke("h3c000000".U) // 1 + j*0
           dut.io.in(1).poke("h00003c00".U) // 0 + j*1
           dut.io.in(2).poke("h40003c00".U) // 2 + j*1
@@ -126,7 +126,7 @@ class TestCPauliY extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestCPauliZ extends AnyFlatSpec with ChiselScalatestTester {
     "CPauliZ" should "MakeVeryLastNegative" in
-      test(new CPauli_Z(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+      test(new CPauli_Z(32)) { dut =>
           dut.io.in(0).poke("h3c000000".U) // 1 + j*0
           dut.io.in(1).poke("h00003c00".U) // 0 + j*1
           dut.io.in(2).poke("h40000000".U) // 2 + j*0
@@ -143,13 +143,15 @@ class TestCPauliZ extends AnyFlatSpec with ChiselScalatestTester {
 
 class TestToffoli extends AnyFlatSpec with ChiselScalatestTester {
     "Toffoli" should "SwitchLast" in
-      test(new Toffoli(32)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+      test(new Toffoli(32)) { dut =>
           dut.io.in(0).poke("h3c000000".U) // 1 + j*0
           dut.io.in(1).poke("h00003c00".U) // 0 + j*1
           dut.io.in(2).poke("h40000000".U) // 2 + j*0
           dut.io.in(3).poke("h00004000".U) // 0 + j*2
           dut.io.in(4).poke("h42000000".U) // 3 + j*0
           dut.io.in(5).poke("h00004200".U) // 0 + j*3
+          dut.io.in(6).poke("h3c000000".U) // 1 + j*0
+          dut.io.in(7).poke("h00003c00".U) // 0 + j*1
 
           dut.clock.step()
           //Second value should become negative and imaginary
@@ -157,7 +159,9 @@ class TestToffoli extends AnyFlatSpec with ChiselScalatestTester {
           dut.io.out(1).expect("h00003c00".U) // 0 + j*1
           dut.io.out(2).expect("h40000000".U) // 2 + j*0
           dut.io.out(3).expect("h00004000".U) // 0 + j*2
-          dut.io.out(4).expect("h00004200".U) // 0 + j*3
-          dut.io.out(5).expect("h42000000".U) // 3 + j*0
+          dut.io.out(4).expect("h42000000".U) // 0 + j*3
+          dut.io.out(5).expect("h00004200".U) // 3 + j*0
+          dut.io.out(6).expect("h00003c00".U) // 0 + j*1
+          dut.io.out(7).expect("h3c000000".U) // 1 + j*0
       }
 }

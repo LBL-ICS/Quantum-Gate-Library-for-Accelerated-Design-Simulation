@@ -1,5 +1,8 @@
-package QuantumStateUnit.QSU_Architecture.Permutation_Designs
+package QuantumStateUnit.QSU_Architecture
 
+import QuantumStateUnit.Old.{tieVecLayer, untieVecLayer}
+import QuantumStateUnit.OtherComponents.Switch2x2._
+import QuantumStateUnit.OtherComponents.WireLayer._
 import chisel3._
 import chisel3.util._
 

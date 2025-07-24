@@ -1,13 +1,13 @@
 package QSU_Test.QSU_Architecture.Permutation_Test
 
-import QuantumStateUnit.QSU_Architecture.Permutation_Designs._
+import QuantumStateUnit.QSU_Architecture._
 import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 
 class InitialSwitch0_Test extends AnyFlatSpec with ChiselScalatestTester {
   "SwitchPermutation0" should "GeneratePattern" in
-    test(new PermutationSwitchGrid(3, 3, 0)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new PermutationSwitchGrid(3, 3, 0)) { dut =>
       //Each is unique state
       for(i <- 0 until 8){
         dut.io.in_QSV(i).poke(i.U)
@@ -53,7 +53,7 @@ class InitialSwitch0_Test extends AnyFlatSpec with ChiselScalatestTester {
 //Moving qubit into 2nd position
 class InitialSwitch1_Test extends AnyFlatSpec with ChiselScalatestTester {
   "SwitchPermutation1" should "GeneratePattern" in
-    test(new PermutationSwitchGrid(3, 3, 1)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new PermutationSwitchGrid(3, 3, 1)) { dut =>
       //Each is unique state
       for(i <- 0 until 8){
         dut.io.in_QSV(i).poke(i.U)
@@ -88,7 +88,7 @@ class InitialSwitch1_Test extends AnyFlatSpec with ChiselScalatestTester {
 
 class StackedPermutationSwitchGrid_Test extends AnyFlatSpec with ChiselScalatestTester {
     "PermutationGrids" should "createCorrectPermutation" in
-      test(new StackedPermutationSwitchGrids(4, 4, Seq(0,1,2))).withAnnotations(Seq(WriteVcdAnnotation)){ dut =>
+      test(new StackedPermutationSwitchGrids(4, 4, Seq(0,1,2))){ dut =>
 
           //initial setup
           for(i <- 0 until 16){

@@ -4,7 +4,6 @@ import QuantumStateUnit.OtherComponents.PsuedoRandomGenerator._
 import New_FPU_Mario.FPUnits._
 import chisel3._
 import chisel3.util._
-import chisel3.util.random._
 
 import scala.math._
 
@@ -248,7 +247,10 @@ class CompareWithRandom(val bw: Int, val mult_pd: Int) extends Module {
   }
 }
 
-
+/*
+  When the qubit is measured, all of the states where the qubit is opposite of the measured state becomes 0.
+    Takes a binary input and outputs either all of the probability of 0 or 1. The opposite probability becomes 0.
+ */
   class NewQSV(val num_of_qubits: Int, val bw: Int) extends Module {
     val io = IO(new Bundle {
       val in_QSV = Input(Vec(pow(2, num_of_qubits).toInt, UInt(bw.W)))

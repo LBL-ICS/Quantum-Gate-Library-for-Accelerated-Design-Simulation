@@ -1,13 +1,13 @@
 package QSU_Test.QSU_Architecture.Permutation_Test
 
-import QuantumStateUnit.QSU_Architecture.Permutation_Designs._
+import QuantumStateUnit.Old._
 import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 
 class PermutationMux0_Test extends AnyFlatSpec with ChiselScalatestTester {
   "MuxPermutation" should "GeneratePattern" in
-    test(new permutationLayer(3, 3, 0)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+    test(new permutationLayer(3, 3, 0)) { dut =>
       //Each is unique state
       for(i <- 0 until 8){
         dut.io.in_QSV(i).poke(i.U)
@@ -53,7 +53,7 @@ class PermutationMux0_Test extends AnyFlatSpec with ChiselScalatestTester {
 //Moving qubit into 2nd position
 class PermutationMux1_Test extends AnyFlatSpec with ChiselScalatestTester {
     "permutation1" should "GeneratePattern" in
-      test(new permutationLayer(3, 3, 1)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+      test(new permutationLayer(3, 3, 1)) { dut =>
           //Each is unique state
           for(i <- 0 until 8){
               dut.io.in_QSV(i).poke(i.U)
@@ -88,7 +88,7 @@ class PermutationMux1_Test extends AnyFlatSpec with ChiselScalatestTester {
 
 class StackedMuxPermutation_Test extends AnyFlatSpec with ChiselScalatestTester {
   "permutationLayers" should "notMakeMeMourn" in
-  test(new StackedMuxPermutation(4, 4, Seq(0,1,2))).withAnnotations(Seq(WriteVcdAnnotation)){ dut =>
+  test(new StackedMuxPermutation(4, 4, Seq(0,1,2))){ dut =>
 
     //initial setup
     for(i <- 0 until 16){

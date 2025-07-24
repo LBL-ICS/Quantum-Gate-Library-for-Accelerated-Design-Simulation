@@ -1,4 +1,4 @@
-package QuantumStateUnit.QSU_Architecture.Permutation_Designs
+package QuantumStateUnit.Old
 
 import chisel3._
 import chisel3.util._

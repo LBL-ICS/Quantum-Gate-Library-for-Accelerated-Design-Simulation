@@ -1,6 +1,6 @@
 package QSU_Test.QSU_Architecture.Controller_Test
 
-import QuantumStateUnit.QSU_Architecture.Controller_Designs.AlgorithmManager
+import QuantumStateUnit.Old.AlgorithmManager
 import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
