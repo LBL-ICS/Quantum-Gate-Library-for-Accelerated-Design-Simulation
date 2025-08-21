@@ -42,7 +42,8 @@ class complex_conjugate_mult (bw: Int, mult_pd: Int, add_pd: Int) extends Module
   val negate: UInt = bw match {
     case 32 => "h8000".U((bw / 2).W)
     case 64 => "h80000000".U((bw / 2).W)
-    case 128 => "h80000000000000000".U((bw / 2).W)
+    case 128 =>"h8000000000000000".U((bw / 2).W)
+    case 256 =>"h80000000000000000000000000000000".U((bw / 2).W)
     case _ => 0.U((bw / 2).W)
   }
 

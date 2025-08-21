@@ -36,6 +36,28 @@ class QuantumStateRegister(val num_of_qubits: Int, val bit_width:Int) extends Mo
 
   val QuantumStateReg = Reg(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
 
+  when(io.in_en){
+    QuantumStateReg := Mux(io.in_en_new_state, io.in_new_state, io.in_QSV)
+  }
+
+  for (i <- 0 until pow(2,num_of_qubits).toInt) {
+    io.out_QSV(i) := QuantumStateReg(i)
+  }
+}
+
+//Same version, but uses a mux instead of a when statement.
+/*
+class QuantumStateRegister(val num_of_qubits: Int, val bit_width:Int) extends Module{
+  val io = IO(new Bundle{
+    val in_QSV          = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W))) //from gatepool
+    val in_new_state    = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W))) //from manager
+    val in_en           = Input(Bool()) //Replaces the current QSV with QSV from gate-pool or manager
+    val in_en_new_state = Input(Bool()) //selects between new_state from manager or QSV from gate-pool when replacing values
+    val out_QSV         = Output(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
+  })
+
+  val QuantumStateReg = Reg(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
+
   for (i <- 0 until pow(2,num_of_qubits).toInt) {
     QuantumStateReg(i) := Mux(io.in_en, Mux(io.in_en_new_state, io.in_new_state(i), io.in_QSV(i)), QuantumStateReg(i))
   }
@@ -44,3 +66,4 @@ class QuantumStateRegister(val num_of_qubits: Int, val bit_width:Int) extends Mo
     io.out_QSV(i) := QuantumStateReg(i)
   }
 }
+ */

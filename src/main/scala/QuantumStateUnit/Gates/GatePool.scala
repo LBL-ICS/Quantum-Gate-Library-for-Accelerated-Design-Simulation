@@ -36,8 +36,16 @@ class nonFPUPool(val num_of_qubits : Int, val bit_width : Int) extends Module{
     val out_valid = Output(Bool())
   })
 
+  //Remove gates if there are only 2 or 1 gate
+  var number_of_gates = 11
+  if(num_of_qubits == 1){
+    number_of_gates = 6
+  } else if(num_of_qubits == 2){
+    number_of_gates = 10
+  }
+
   //Out Mux layer
-  val muxLayer        = Module(new QGPMuxLayer(num_of_qubits,bit_width, 11/*number of gates in module*/))
+  val muxLayer        = Module(new QGPMuxLayer(num_of_qubits, bit_width, number_of_gates))
   muxLayer.io.in_sel  := io.in_sel
 
 
@@ -108,49 +116,59 @@ class nonFPUPool(val num_of_qubits : Int, val bit_width : Int) extends Module{
     muxLayer.io.in_QSV(5)(2*i+1):= InverseSGate(i).io.out(1)
   }
 
-  //Controlled Not gate, CX, or CNOT    ID: 6
-  val CNOTGate = Seq.fill(pow(2,num_of_qubits-2).toInt)(Module(new CNOT(bit_width)))
-  for(i <- 0 until pow(2,num_of_qubits-2).toInt){
-    for(j <- 0 until 4) {
-      CNOTGate(i).io.in(j)              := io.in_QSV(4 * i + j) //into the Gate
-      muxLayer.io.in_QSV(6)(4 * i + j)  := CNOTGate(i).io.out(j) //Into the mux
-    }
-  }
+  //2 qubit gates
+  if(num_of_qubits >=2) {
 
-  //Controlled Y gate    ID: 7
-  val CYGate = Seq.fill(pow(2,num_of_qubits-2).toInt)(Module(new CPauli_Y(bit_width)))
-  for(i <- 0 until pow(2,num_of_qubits-2).toInt){
-    for(j <- 0 until 4) {
-      CYGate(i).io.in(j)                := io.in_QSV(4 * i + j) //into the Gate
-      muxLayer.io.in_QSV(7)(4 * i + j)  := CYGate(i).io.out(j) //Into the mux
+    //Controlled Not gate, CX, or CNOT    ID: 6
+    val CNOTGate = Seq.fill(pow(2, num_of_qubits - 2).toInt)(Module(new CNOT(bit_width)))
+    for (i <- 0 until pow(2, num_of_qubits - 2).toInt) {
+      for (j <- 0 until 4) {
+        CNOTGate(i).io.in(j) := io.in_QSV(4 * i + j) //into the Gate
+        muxLayer.io.in_QSV(6)(4 * i + j) := CNOTGate(i).io.out(j) //Into the mux
+      }
     }
-  }
 
-  //Controlled Z Gate    ID: 8
-  val CZGate = Seq.fill(pow(2,num_of_qubits-2).toInt)(Module(new CPauli_Z(bit_width)))
-  for(i <- 0 until pow(2,num_of_qubits-2).toInt){
-    for(j <- 0 until 4) {
-      CZGate(i).io.in(j)                := io.in_QSV(4 * i + j) //into the Gate
-      muxLayer.io.in_QSV(8)(4 * i + j)  := CZGate(i).io.out(j) //Into the mux
+    //Controlled Y gate    ID: 7
+    val CYGate = Seq.fill(pow(2, num_of_qubits - 2).toInt)(Module(new CPauli_Y(bit_width)))
+    for (i <- 0 until pow(2, num_of_qubits - 2).toInt) {
+      for (j <- 0 until 4) {
+        CYGate(i).io.in(j) := io.in_QSV(4 * i + j) //into the Gate
+        muxLayer.io.in_QSV(7)(4 * i + j) := CYGate(i).io.out(j) //Into the mux
+      }
     }
-  }
 
-  //Controlled Z Gate    ID: 9
-  val swapGate = Seq.fill(pow(2,num_of_qubits-2).toInt)(Module(new SwapGate(bit_width)))
-  for(i <- 0 until pow(2,num_of_qubits-2).toInt){
-    for(j <- 0 until 4) {
-      swapGate(i).io.in(j)              := io.in_QSV(4 * i + j) //into the Gate
-      muxLayer.io.in_QSV(9)(4 * i + j)  := swapGate(i).io.out(j) //Into the mux
+    //Controlled Z Gate    ID: 8
+    val CZGate = Seq.fill(pow(2, num_of_qubits - 2).toInt)(Module(new CPauli_Z(bit_width)))
+    for (i <- 0 until pow(2, num_of_qubits - 2).toInt) {
+      for (j <- 0 until 4) {
+        CZGate(i).io.in(j) := io.in_QSV(4 * i + j) //into the Gate
+        muxLayer.io.in_QSV(8)(4 * i + j) := CZGate(i).io.out(j) //Into the mux
+      }
     }
-  }
 
-  //Toffoli             ID: 10
-  val ToffoliGate = Seq.fill(pow(2,num_of_qubits-3).toInt)(Module(new Toffoli(bit_width)))
-  for(i <- 0 until pow(2,num_of_qubits-3).toInt){
-    for(j <- 0 until 8) {
-      ToffoliGate(i).io.in(j)           := io.in_QSV(8 * i + j) //into the Gate
-      muxLayer.io.in_QSV(10)(8 * i + j)  := ToffoliGate(i).io.out(j) //Into the mux
+    //Controlled Z Gate    ID: 9
+    val swapGate = Seq.fill(pow(2, num_of_qubits - 2).toInt)(Module(new SwapGate(bit_width)))
+    for (i <- 0 until pow(2, num_of_qubits - 2).toInt) {
+      for (j <- 0 until 4) {
+        swapGate(i).io.in(j) := io.in_QSV(4 * i + j) //into the Gate
+        muxLayer.io.in_QSV(9)(4 * i + j) := swapGate(i).io.out(j) //Into the mux
+      }
     }
+
+    //3 input gates
+    if(num_of_qubits >= 3) {
+
+      //Toffoli             ID: 10
+      val ToffoliGate = Seq.fill(pow(2, num_of_qubits - 3).toInt)(Module(new Toffoli(bit_width)))
+      for (i <- 0 until pow(2, num_of_qubits - 3).toInt) {
+        for (j <- 0 until 8) {
+          ToffoliGate(i).io.in(j) := io.in_QSV(8 * i + j) //into the Gate
+          muxLayer.io.in_QSV(10)(8 * i + j) := ToffoliGate(i).io.out(j) //Into the mux
+        }
+      }
+      //end of 3 input gates
+    }
+    //end of 2 input gates
   }
 
   /*
@@ -176,5 +194,3 @@ class QGPMuxLayer(val num_of_qubits : Int, val bit_width : Int, val num_of_gates
   //actual circuit
   io.out_QSV  := io.in_QSV(io.in_sel)
 }
-
-

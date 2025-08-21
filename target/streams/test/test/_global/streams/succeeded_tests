@@ -1,8 +1,8 @@
 #Successful Tests
-#Thu Jul 24 11:06:04 CDT 2025
+#Fri Jul 25 11:38:19 CDT 2025
 QSU_Test.Gates.TestNo_Op=1753371178759
-QSU_Test.QSU_Architecture.QGPTest3=1753371729443
 QSU_Test.Gates.MeasureGate_Test=1752114820872
+QSU_Test.QSU_Architecture.QGPTest3=1753371729443
 QSU_Test.QSU_Architecture.QGPTest2=1753371456654
 QSU_Test.QSU_Architecture.QGPTest1=1753371214365
 QSU_Test.Gates.TestPauliY=1753371178759
@@ -22,7 +22,7 @@ QSU_Test.QGPMuxLayerCheck=1750261390037
 QSU_Test.QSU_Architecture.Permutation_Test.PermutationMux0_Test=1753371179476
 QSU_Test.QSU_Architecture.AlgManager_Test=1750344007050
 QSU_Test.Gates.TestCNOT=1753371178759
-QSU_Test.QSU_Architecture.QSR_Test=1753371178759
+QSU_Test.QSU_Architecture.QSR_Test=1753461499219
 QSU_Test.QSU_Test3=1753372028554
 QSU_Test.QSU_Test2=1753372199837
 QSU_Test.Gates.RNGXORShift_Test=1751940783146

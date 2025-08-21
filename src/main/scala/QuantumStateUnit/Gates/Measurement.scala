@@ -135,8 +135,13 @@ class CollapseProbability(val num_of_qubits: Int, val bw: Int, val mult_pd: Int,
   }
 
   //Attach reduce layer outputs to the io.out
-  io.out_Measured(0) := reduceadders(0).io.out_s
-  io.out_Measured(1) := reduceadders(1).io.out_s
+  if(num_of_qubits == 1){
+    io.out_Measured(0) := addlayer(0).io.out_s
+    io.out_Measured(1) := addlayer(1).io.out_s
+  }else {
+    io.out_Measured(0) := reduceadders(0).io.out_s
+    io.out_Measured(1) := reduceadders(1).io.out_s
+  }
   //Start attaching wires from the output to the initial input
   var currentRow = 0 //initial value of recursion
   var nextRow = 2
@@ -171,7 +176,11 @@ class CollapseProbability(val num_of_qubits: Int, val bw: Int, val mult_pd: Int,
   }
 
   //Valid will come from the normalization module instead if it's chosen
-  io.out_valid := reduceadders(0).io.out_valid && reduceadders(1).io.out_valid
+  if(num_of_qubits == 1){
+    io.out_valid := addlayer(0).io.out_valid && addlayer(1).io.out_valid
+  } else {
+    io.out_valid := reduceadders(0).io.out_valid && reduceadders(1).io.out_valid
+  }
 
 }
 
