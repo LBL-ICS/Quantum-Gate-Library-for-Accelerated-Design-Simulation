@@ -152,5 +152,5 @@ class TopQSU_ShftIO(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd 
 }
 
 object main extends App{
-  emitVerilog(new TopQSU_ShftIO(4,256,3,3,10))
+  emitVerilog(new TopQSU_ShftIO(3,32,3,3,10))
 }
