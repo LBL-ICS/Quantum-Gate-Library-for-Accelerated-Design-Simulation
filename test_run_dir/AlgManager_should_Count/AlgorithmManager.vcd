@@ -9,11 +9,11 @@ $comment
 $end
 $timescale 1ns  $end
 $scope module AlgorithmManager $end
- $var wire 1 ! io_in_Permutation_0 $end
- $var wire 1 " io_in_Permutation_1 $end
- $var wire 1 # io_in_Permutation_2 $end
- $var wire 1 $ io_in_Permutation_3 $end
- $var wire 1 % io_in_Permutation_4 $end
+ $var wire 1 ! io_in_Permutaiton_Sel_0 $end
+ $var wire 1 " io_in_Permutaiton_Sel_1 $end
+ $var wire 1 # io_in_Permutaiton_Sel_2 $end
+ $var wire 1 $ io_in_Permutaiton_Sel_3 $end
+ $var wire 1 % io_in_Permutaiton_Sel_4 $end
  $var wire 1 & io_out_endofAlg $end
  $var wire 1 ' stop $end
  $var wire 1 ( reset $end
@@ -28,12 +28,12 @@ $scope module AlgorithmManager $end
  $var wire 3 1 quantumGate_2 $end
  $var wire 3 2 quantumGate_1 $end
  $var wire 3 3 quantumGate_4 $end
- $var wire 3 4 io_in_Gate_4 $end
+ $var wire 3 4 io_in_Gate_Sel_4 $end
  $var wire 3 5 quantumGate_3 $end
- $var wire 3 6 io_in_Gate_3 $end
- $var wire 3 7 io_in_Gate_2 $end
- $var wire 3 8 io_in_Gate_1 $end
- $var wire 3 9 io_in_Gate_0 $end
+ $var wire 3 6 io_in_Gate_Sel_3 $end
+ $var wire 3 7 io_in_Gate_Sel_2 $end
+ $var wire 3 8 io_in_Gate_Sel_1 $end
+ $var wire 3 9 io_in_Gate_Sel_0 $end
  $var wire 1 : io_out_en_QSR $end
  $var wire 1 ; io_out_newState $end
  $var wire 3 < io_out_sel_gate $end

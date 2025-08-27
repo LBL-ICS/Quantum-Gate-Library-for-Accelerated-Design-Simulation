@@ -42,10 +42,10 @@ class QSU_Test1 extends AnyFlatSpec with ChiselScalatestTester {
       Gate:         X   Y   Z   Swap
        */
       //Q0 X gate
-      dut.io.in_Permutation0.poke(0.U)
-      dut.io.in_Permutation1.poke(0.U)
-      dut.io.in_Permutation2.poke(0.U)
-      dut.io.in_Gate.poke(1.U)
+      dut.io.in_Permutaiton_Sel(0).poke(0.U)
+      dut.io.in_Permutaiton_Sel(1).poke(0.U)
+      dut.io.in_Permutaiton_Sel(2).poke(0.U)
+      dut.io.in_Gate_Sel.poke(1.U)
       dut.clock.step()
       dut.io.in_applyGate.poke(1.B)
       dut.clock.step()
@@ -53,10 +53,10 @@ class QSU_Test1 extends AnyFlatSpec with ChiselScalatestTester {
       dut.clock.step(10)
 
       //Q1 Y gate
-      dut.io.in_Permutation0.poke(1.U)
-      dut.io.in_Permutation1.poke(0.U)
-      dut.io.in_Permutation2.poke(0.U)
-      dut.io.in_Gate.poke(2.U)
+      dut.io.in_Permutaiton_Sel(0).poke(1.U)
+      dut.io.in_Permutaiton_Sel(1).poke(0.U)
+      dut.io.in_Permutaiton_Sel(2).poke(0.U)
+      dut.io.in_Gate_Sel.poke(2.U)
       dut.clock.step()
       dut.io.in_applyGate.poke(1.B)
       dut.clock.step()
@@ -64,10 +64,10 @@ class QSU_Test1 extends AnyFlatSpec with ChiselScalatestTester {
       dut.clock.step(10)
 
       //Q3 Z gate
-      dut.io.in_Permutation0.poke(2.U)
-      dut.io.in_Permutation1.poke(0.U)
-      dut.io.in_Permutation2.poke(0.U)
-      dut.io.in_Gate.poke(3.U)
+      dut.io.in_Permutaiton_Sel(0).poke(2.U)
+      dut.io.in_Permutaiton_Sel(1).poke(0.U)
+      dut.io.in_Permutaiton_Sel(2).poke(0.U)
+      dut.io.in_Gate_Sel.poke(3.U)
       dut.clock.step()
       dut.io.in_applyGate.poke(1.B)
       dut.clock.step()
@@ -75,10 +75,10 @@ class QSU_Test1 extends AnyFlatSpec with ChiselScalatestTester {
       dut.clock.step(10)
 
       //Q0Q2 swap gate
-      dut.io.in_Permutation0.poke(0.U)
-      dut.io.in_Permutation1.poke(1.U)
-      dut.io.in_Permutation2.poke(0.U)
-      dut.io.in_Gate.poke(9.U)
+      dut.io.in_Permutaiton_Sel(0).poke(0.U)
+      dut.io.in_Permutaiton_Sel(1).poke(1.U)
+      dut.io.in_Permutaiton_Sel(2).poke(0.U)
+      dut.io.in_Gate_Sel.poke(9.U)
       dut.clock.step()
       dut.io.in_applyGate.poke(1.B)
       dut.clock.step()
@@ -115,10 +115,10 @@ class QSU_Test2 extends AnyFlatSpec with ChiselScalatestTester {
 
           for(i <- 0 until 24){
               //Q0 H gate
-              dut.io.in_Permutation0.poke(0.U)
-              dut.io.in_Permutation1.poke(0.U)
-              dut.io.in_Permutation2.poke(0.U)
-              dut.io.in_Gate.poke("h11".U)
+              dut.io.in_Permutaiton_Sel(0).poke(0.U)
+              dut.io.in_Permutaiton_Sel(1).poke(0.U)
+              dut.io.in_Permutaiton_Sel(2).poke(0.U)
+              dut.io.in_Gate_Sel.poke("h11".U)
               dut.clock.step()
               dut.io.in_applyGate.poke(1.B)
               dut.clock.step()
@@ -156,10 +156,10 @@ class QSU_Test3 extends AnyFlatSpec with ChiselScalatestTester{
         */
 
         //Q0 H gate
-        dut.io.in_Permutation0.poke(0.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h11".U)
+        dut.io.in_Permutaiton_Sel(0).poke(0.U)
+        dut.io.in_Permutaiton_Sel(1).poke(0.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h11".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -168,10 +168,10 @@ class QSU_Test3 extends AnyFlatSpec with ChiselScalatestTester{
         dut.io.out_flag.expect(1.B)
 
         //Q1 H gate
-        dut.io.in_Permutation0.poke(1.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h11".U)
+        dut.io.in_Permutaiton_Sel(0).poke(1.U)
+        dut.io.in_Permutaiton_Sel(1).poke(0.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h11".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -180,10 +180,10 @@ class QSU_Test3 extends AnyFlatSpec with ChiselScalatestTester{
         dut.io.out_flag.expect(1.B)
 
         //control: Q1 -> target: Q2 CNOT gate
-        dut.io.in_Permutation0.poke(2.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h06".U)
+        dut.io.in_Permutaiton_Sel(0).poke(2.U)
+        dut.io.in_Permutaiton_Sel(1).poke(0.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h06".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -192,10 +192,10 @@ class QSU_Test3 extends AnyFlatSpec with ChiselScalatestTester{
         dut.io.out_flag.expect(1.B)
 
         //Q0 <-> Q1 Swap gate
-        dut.io.in_Permutation0.poke(0.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h09".U)
+        dut.io.in_Permutaiton_Sel(0).poke(0.U)
+        dut.io.in_Permutaiton_Sel(1).poke(0.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h09".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -204,10 +204,10 @@ class QSU_Test3 extends AnyFlatSpec with ChiselScalatestTester{
         dut.io.out_flag.expect(1.B)
 
         //Q0 measure gate
-        dut.io.in_Permutation0.poke(0.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h1f".U)
+        dut.io.in_Permutaiton_Sel(0).poke(0.U)
+        dut.io.in_Permutaiton_Sel(1).poke(0.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h1f".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -216,10 +216,10 @@ class QSU_Test3 extends AnyFlatSpec with ChiselScalatestTester{
         dut.io.out_flag.expect(1.B)
 
         //Q1 measure gate
-        dut.io.in_Permutation0.poke(1.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h1f".U)
+        dut.io.in_Permutaiton_Sel(1).poke(1.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Permutaiton_Sel(3).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h1f".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -232,7 +232,8 @@ class QSU_Test3 extends AnyFlatSpec with ChiselScalatestTester{
 //Normalize first, get weird entanglement to see possible error
 class QSU_Test4 extends AnyFlatSpec with ChiselScalatestTester {
     "QSU" should "Normalize State, then apply gates" in
-      test(new TopQSU(/*qubits*/ 3, /*bw*/ 32, 3, 3, 10)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>dut.io.in_QSV(0).poke("h3C000000".U) //000 : 1...
+      test(new TopQSU(/*qubits*/ 3, /*bw*/ 32, 3, 3, 10)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+          dut.io.in_QSV(0).poke("h3C000000".U) //000 : 1...
         dut.io.in_QSV(1).poke("h3C000000".U) //001 : 1...
         dut.io.in_QSV(2).poke("h00000000".U) //010 : 0...
         dut.io.in_QSV(3).poke("h00000000".U) //011 : 0...
@@ -247,10 +248,10 @@ class QSU_Test4 extends AnyFlatSpec with ChiselScalatestTester {
         dut.clock.step(5)
 
         //Normalize first before applying gates
-        dut.io.in_Permutation0.poke(0.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h10".U)
+        dut.io.in_Permutaiton_Sel(0).poke(0.U)
+        dut.io.in_Permutaiton_Sel(1).poke(0.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h10".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -269,10 +270,10 @@ class QSU_Test4 extends AnyFlatSpec with ChiselScalatestTester {
           */
 
         //
-        dut.io.in_Permutation0.poke(0.U)
-        dut.io.in_Permutation1.poke(0.U)
-        dut.io.in_Permutation2.poke(0.U)
-        dut.io.in_Gate.poke("h10".U)
+        dut.io.in_Permutaiton_Sel(0).poke(0.U)
+        dut.io.in_Permutaiton_Sel(1).poke(0.U)
+        dut.io.in_Permutaiton_Sel(2).poke(0.U)
+        dut.io.in_Gate_Sel.poke("h10".U)
         dut.clock.step()
         dut.io.in_applyGate.poke(1.B)
         dut.clock.step()
@@ -280,5 +281,43 @@ class QSU_Test4 extends AnyFlatSpec with ChiselScalatestTester {
         dut.clock.step(100)
         dut.io.out_flag.expect(1.B)
         //... Not done
+      }
+}
+
+
+class OneQubitQSU_Test extends AnyFlatSpec with ChiselScalatestTester {
+    "QSU" should "Do_A_Thing" in
+      test(new TopQSU(/*qubits*/ 1, /*bw*/ 32, 3, 3, 10)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+          dut.io.in_QSV(0).poke("h3C000000".U) //000 : 1...
+          dut.io.in_QSV(1).poke("h00000000".U) //001 : 0...
+          dut.clock.step()
+          dut.io.in_en_replaceQSV.poke(1.B)
+          dut.clock.step()
+          dut.io.in_en_replaceQSV.poke(0.B)
+          dut.clock.step(5)
+
+          dut.io.in_Gate_Sel.poke("h11".U)
+          dut.clock.step()
+          dut.io.in_applyGate.poke(1.B)
+          dut.clock.step()
+          dut.io.in_applyGate.poke(0.B)
+          dut.clock.step(20)
+          dut.io.out_flag.expect(1.B)
+
+          dut.io.in_Gate_Sel.poke(20.U)
+          dut.clock.step()
+          dut.io.in_applyGate.poke(1.B)
+          dut.clock.step()
+          dut.io.in_applyGate.poke(0.B)
+          dut.clock.step(20)
+          dut.io.out_flag.expect(1.B)
+
+          dut.io.in_Gate_Sel.poke(21.U)
+          dut.clock.step()
+          dut.io.in_applyGate.poke(1.B)
+          dut.clock.step()
+          dut.io.in_applyGate.poke(0.B)
+          dut.clock.step(20)
+          dut.io.out_flag.expect(1.B)
       }
 }

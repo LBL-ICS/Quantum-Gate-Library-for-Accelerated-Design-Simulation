@@ -284,6 +284,14 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\Projects\NSF-REU\Quantum-Computing-Simulation\target\scala-2.13\classes\QuantumStateUnit\OtherComponents\WireLayer\WireLayer.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QuantumStateUnit\QSU_Architecture[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\Projects\NSF-REU\Quantum-Computing-Simulation\target\scala-2.13\classes\QuantumStateUnit\QSU_Architecture[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuantumStateUnit\QSU_Architecture\muxLayer$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Projects\NSF-REU\Quantum-Computing-Simulation\target\scala-2.13\classes\QuantumStateUnit\QSU_Architecture\muxLayer$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuantumStateUnit\QSU_Architecture\muxLayer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Projects\NSF-REU\Quantum-Computing-Simulation\target\scala-2.13\classes\QuantumStateUnit\QSU_Architecture\muxLayer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuantumStateUnit\QSU_Architecture\permutationLayer$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Projects\NSF-REU\Quantum-Computing-Simulation\target\scala-2.13\classes\QuantumStateUnit\QSU_Architecture\permutationLayer$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuantumStateUnit\QSU_Architecture\permutationLayer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Projects\NSF-REU\Quantum-Computing-Simulation\target\scala-2.13\classes\QuantumStateUnit\QSU_Architecture\permutationLayer.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QuantumStateUnit\QSU_Architecture\PermutationSwitchGrid$$anon$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\Projects\NSF-REU\Quantum-Computing-Simulation\target\scala-2.13\classes\QuantumStateUnit\QSU_Architecture\PermutationSwitchGrid$$anon$2.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	QuantumStateUnit\QSU_Architecture\PermutationSwitchGrid.class[0m

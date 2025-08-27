@@ -75,7 +75,7 @@ class FPUPool(val num_of_qubits : Int, val bw :Int, val mult_pd : Int, val add_p
   //sqrt(Y)
   /*  Matrix: (1/2)*| (1+j) -(1+j) |
                     | (1+j)  (1+j) |  */
-  val sqrtY0 = bw match {
+  val sqrtY0 = bw match { //NEED FIXEN
     case 32 => "h38003800".U(bw.W)
     case 64 => "h3F0000003F000000".U(bw.W)
     case 128 =>"h3FE00000000000003FE0000000000000".U(bw.W)
@@ -113,7 +113,7 @@ class FPUPool(val num_of_qubits : Int, val bw :Int, val mult_pd : Int, val add_p
     case 128 =>"h3FF00000000000000000000000000000".U(bw.W)
     case 256 =>"h3FFF000000000000000000000000000000000000000000000000000000000000".U(bw.W)
   }
-  val inverseT1 = bw match { // e^(j*pi/4) = sqrt(1/2) + j*sqrt(1/2) = 0.707... + 0.707...
+  val inverseT1 = bw match { // e^(j*pi/4) = sqrt(1/2) + j*sqrt(1/2) = 0.707... - 0.707... //NEEDS FIXEN
     case 32 => "h39A8B9A8".U(bw.W)
     case 64 => "h3F3504F3BF3504F3".U(bw.W)
     case 128 =>"h3FE6A09E667E556EBFE6A09E667E556E".U(bw.W)

@@ -11,7 +11,7 @@ import org.scalatest.flatspec.AnyFlatSpec
   Circuit length: 9
   Delay: 3 clock cycles
  */
-
+/*
 //Test the counter, to ensure that the correct permutation and gate is outputed
 class AlgManager_Test1 extends AnyFlatSpec with ChiselScalatestTester {
   "AlgManager" should "Count" in
@@ -19,8 +19,8 @@ class AlgManager_Test1 extends AnyFlatSpec with ChiselScalatestTester {
       //All Inputs and Output for algManager
       /*
         val in_QSV              = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
-        val in_Permutation      = Input(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W))) //
-        val in_Gate             = Input(Vec(Alg_length, UInt(ceil(log(num_of_gates)/log(2)).toInt.W))) //There is only so many gates, so it gets 1 byte
+        val in_Permutaiton_Sel      = Input(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W))) //
+        val in_Gate_Sel             = Input(Vec(Alg_length, UInt(ceil(log(num_of_gates)/log(2)).toInt.W))) //There is only so many gates, so it gets 1 byte
         val in_en_newData       = Input(Bool()) //Replaces Initial state and algorithm with above inputs
         val in_en_next          = Input(Bool()) //For Updating the QSR
         val out_en_QSR          = Output(Bool()) //For updating QSV with new value from gate pool
@@ -36,17 +36,17 @@ class AlgManager_Test1 extends AnyFlatSpec with ChiselScalatestTester {
           dut.io.in_QSV(i).poke(0.U)
       }
       //Permutation 0 1 0 1 0
-      dut.io.in_Permutation(0).poke(0.U) //Always output 0.U despite input being 1.U
-      dut.io.in_Permutation(1).poke(1.U)
-      dut.io.in_Permutation(2).poke(0.U)
-      dut.io.in_Permutation(3).poke(1.U)
-      dut.io.in_Permutation(4).poke(0.U)
+      dut.io.in_Permutaiton_Sel(0).poke(0.U) //Always output 0.U despite input being 1.U
+      dut.io.in_Permutaiton_Sel(1).poke(1.U)
+      dut.io.in_Permutaiton_Sel(2).poke(0.U)
+      dut.io.in_Permutaiton_Sel(3).poke(1.U)
+      dut.io.in_Permutaiton_Sel(4).poke(0.U)
       //Gates: no-op X Y X stop
-      dut.io.in_Gate(0).poke(0.U)
-      dut.io.in_Gate(1).poke(1.U)
-      dut.io.in_Gate(2).poke(0.U)
-      dut.io.in_Gate(3).poke(1.U)
-      dut.io.in_Gate(4).poke("b111".U)//all 1's to stop
+      dut.io.in_Gate_Sel(0).poke(0.U)
+      dut.io.in_Gate_Sel(1).poke(1.U)
+      dut.io.in_Gate_Sel(2).poke(0.U)
+      dut.io.in_Gate_Sel(3).poke(1.U)
+      dut.io.in_Gate_Sel(4).poke("b111".U)//all 1's to stop
       //Initial en
       dut.io.in_en_newData.poke(0.B)
       dut.io.in_en_next.poke(0.B)
@@ -109,8 +109,8 @@ class AlgManager_Test2 extends AnyFlatSpec with ChiselScalatestTester {
           //All Inputs and Output for algManager
           /*
   val in_QSV              = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
-  val in_Permutation      = Input(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W))) //
-  val in_Gate             = Input(Vec(Alg_length, UInt(ceil(log(num_of_gates)/log(2)).toInt.W))) //There is only so many gates, so it gets 1 byte
+  val in_Permutaiton_Sel      = Input(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W))) //
+  val in_Gate_Sel             = Input(Vec(Alg_length, UInt(ceil(log(num_of_gates)/log(2)).toInt.W))) //There is only so many gates, so it gets 1 byte
   val in_en_newData       = Input(Bool()) //Replaces Initial state and algorithm with above inputs
   val in_en_next          = Input(Bool()) //For Updating the QSR
   val out_en_QSR          = Output(Bool()) //For updating QSV with new value from gate pool
@@ -123,12 +123,12 @@ class AlgManager_Test2 extends AnyFlatSpec with ChiselScalatestTester {
  */
         //Not relevant to the test
         for(i <- 0 until 4){
-            dut.io.in_Gate(i).poke(0.U)
-            dut.io.in_Permutation(i).poke(0.U)
+            dut.io.in_Gate_Sel(i).poke(0.U)
+            dut.io.in_Permutaiton_Sel(i).poke(0.U)
             dut.io.in_QSV(i).poke(0.U)
         }
-        dut.io.in_Gate(4).poke("b111".U)
-        dut.io.in_Permutation(4).poke(0.U)
+        dut.io.in_Gate_Sel(4).poke("b111".U)
+        dut.io.in_Permutaiton_Sel(4).poke(0.U)
 
         //update registers with new values
         dut.clock.step()
@@ -164,3 +164,5 @@ class AlgManager_Test2 extends AnyFlatSpec with ChiselScalatestTester {
         dut.io.out_en_QGP.expect(1.B)
       }
 }
+
+ */

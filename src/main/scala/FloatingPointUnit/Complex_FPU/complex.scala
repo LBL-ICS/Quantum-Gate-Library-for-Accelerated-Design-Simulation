@@ -74,7 +74,6 @@ class complex_conjugate_mult (bw: Int, mult_pd: Int, add_pd: Int) extends Module
     mod.io.in_en := false.B
     mod.io.in_valid := false.B
   }
-
   FP_mult_inst(0).io.in_a := io.complexA((bw - 1), (bw / 2)) //realA
   FP_mult_inst(0).io.in_b := io.complexB((bw - 1), (bw / 2)) //realB
   FP_mult_inst(1).io.in_a := io.complexA(((bw / 2) - 1), 0)  //imagA
@@ -85,9 +84,9 @@ class complex_conjugate_mult (bw: Int, mult_pd: Int, add_pd: Int) extends Module
   FP_mult_inst(3).io.in_b := io.complexB(((bw / 2) - 1), 0)  //imagB
 
   FP_adder_Inst(0).io.in_a := Mux(FP_adder_Inst(0).io.in_en, FP_mult_inst(0).io.out_s, 0.U)
-  FP_adder_Inst(0).io.in_b := Mux(FP_adder_Inst(0).io.in_en, FP_mult_inst(1).io.out_s, 0.U)
+  FP_adder_Inst(0).io.in_b := Mux(FP_adder_Inst(0).io.in_en, FP_mult_inst(1).io.out_s ^ negate, 0.U)
 
-  FP_adder_Inst(1).io.in_a := Mux(FP_adder_Inst(1).io.in_en, FP_mult_inst(2).io.out_s ^ negate, 0.U)
+  FP_adder_Inst(1).io.in_a := Mux(FP_adder_Inst(1).io.in_en, FP_mult_inst(2).io.out_s, 0.U)
   FP_adder_Inst(1).io.in_b := Mux(FP_adder_Inst(1).io.in_en, FP_mult_inst(3).io.out_s, 0.U)
 
   for (i <- 0 until 4) {

@@ -31,27 +31,27 @@ $scope module TopQSU $end
  $var wire 32 #Q io_out_state_5 $end
  $var wire 32 #S io_out_state_4 $end
  $var wire 1 $. reset $end
- $var wire 8 $D io_in_Gate_9 $end
- $var wire 8 $E io_in_Gate_8 $end
- $var wire 8 $F io_in_Gate_7 $end
- $var wire 8 $G io_in_Gate_6 $end
- $var wire 8 $H io_in_Gate_5 $end
- $var wire 8 $J io_in_Gate_4 $end
- $var wire 8 $L io_in_Gate_3 $end
- $var wire 8 $N io_in_Gate_2 $end
- $var wire 8 $O io_in_Gate_1 $end
- $var wire 8 $P io_in_Gate_0 $end
+ $var wire 8 $D io_in_Gate_Sel_9 $end
+ $var wire 8 $E io_in_Gate_Sel_8 $end
+ $var wire 8 $F io_in_Gate_Sel_7 $end
+ $var wire 8 $G io_in_Gate_Sel_6 $end
+ $var wire 8 $H io_in_Gate_Sel_5 $end
+ $var wire 8 $J io_in_Gate_Sel_4 $end
+ $var wire 8 $L io_in_Gate_Sel_3 $end
+ $var wire 8 $N io_in_Gate_Sel_2 $end
+ $var wire 8 $O io_in_Gate_Sel_1 $end
+ $var wire 8 $P io_in_Gate_Sel_0 $end
  $var wire 1 $b io_in_en_newData $end
- $var wire 3 &6 io_in_Permutation_0 $end
- $var wire 3 &7 io_in_Permutation_1 $end
- $var wire 3 &8 io_in_Permutation_6 $end
- $var wire 3 &9 io_in_Permutation_7 $end
- $var wire 3 &: io_in_Permutation_8 $end
- $var wire 3 &; io_in_Permutation_9 $end
- $var wire 3 &< io_in_Permutation_2 $end
- $var wire 3 &= io_in_Permutation_3 $end
- $var wire 3 &> io_in_Permutation_4 $end
- $var wire 3 &? io_in_Permutation_5 $end
+ $var wire 3 &6 io_in_Permutaiton_Sel_0 $end
+ $var wire 3 &7 io_in_Permutaiton_Sel_1 $end
+ $var wire 3 &8 io_in_Permutaiton_Sel_6 $end
+ $var wire 3 &9 io_in_Permutaiton_Sel_7 $end
+ $var wire 3 &: io_in_Permutaiton_Sel_8 $end
+ $var wire 3 &; io_in_Permutaiton_Sel_9 $end
+ $var wire 3 &< io_in_Permutaiton_Sel_2 $end
+ $var wire 3 &= io_in_Permutaiton_Sel_3 $end
+ $var wire 3 &> io_in_Permutaiton_Sel_4 $end
+ $var wire 3 &? io_in_Permutaiton_Sel_5 $end
  $var wire 1 &k manager $end
  $var wire 1 '. io_out_flag $end
   $scope module gatePool.pauliZ_1.flipC $end
@@ -283,14 +283,14 @@ $scope module TopQSU $end
    $var wire 1 #^ clock $end
    $var wire 1 #c reset $end
    $var wire 1 $d stop $end
-   $var wire 3 %+ io_in_Gate_5 $end
-   $var wire 3 %, io_in_Gate_4 $end
-   $var wire 3 %- io_in_Gate_3 $end
-   $var wire 3 %. io_in_Gate_2 $end
-   $var wire 3 %/ io_in_Gate_9 $end
-   $var wire 3 %0 io_in_Gate_8 $end
-   $var wire 3 %1 io_in_Gate_7 $end
-   $var wire 3 %2 io_in_Gate_6 $end
+   $var wire 3 %+ io_in_Gate_Sel_5 $end
+   $var wire 3 %, io_in_Gate_Sel_4 $end
+   $var wire 3 %- io_in_Gate_Sel_3 $end
+   $var wire 3 %. io_in_Gate_Sel_2 $end
+   $var wire 3 %/ io_in_Gate_Sel_9 $end
+   $var wire 3 %0 io_in_Gate_Sel_8 $end
+   $var wire 3 %1 io_in_Gate_Sel_7 $end
+   $var wire 3 %2 io_in_Gate_Sel_6 $end
    $var wire 3 %5 quantumGate_2 $end
    $var wire 3 %6 quantumGate_3 $end
    $var wire 3 %7 quantumGate_4 $end
@@ -305,18 +305,18 @@ $scope module TopQSU $end
    $var wire 1 %i io_in_en_next $end
    $var wire 1 %v io_in_en_newData $end
    $var wire 4 %w cntEventsReg $end
-   $var wire 3 && io_in_Gate_1 $end
-   $var wire 3 &( io_in_Gate_0 $end
-   $var wire 2 &H io_in_Permutation_1 $end
-   $var wire 2 &I io_in_Permutation_2 $end
-   $var wire 2 &J io_in_Permutation_0 $end
-   $var wire 2 &K io_in_Permutation_5 $end
-   $var wire 2 &L io_in_Permutation_6 $end
-   $var wire 2 &M io_in_Permutation_3 $end
-   $var wire 2 &N io_in_Permutation_4 $end
-   $var wire 2 &O io_in_Permutation_9 $end
-   $var wire 2 &P io_in_Permutation_7 $end
-   $var wire 2 &Q io_in_Permutation_8 $end
+   $var wire 3 && io_in_Gate_Sel_1 $end
+   $var wire 3 &( io_in_Gate_Sel_0 $end
+   $var wire 2 &H io_in_Permutaiton_Sel_1 $end
+   $var wire 2 &I io_in_Permutaiton_Sel_2 $end
+   $var wire 2 &J io_in_Permutaiton_Sel_0 $end
+   $var wire 2 &K io_in_Permutaiton_Sel_5 $end
+   $var wire 2 &L io_in_Permutaiton_Sel_6 $end
+   $var wire 2 &M io_in_Permutaiton_Sel_3 $end
+   $var wire 2 &N io_in_Permutaiton_Sel_4 $end
+   $var wire 2 &O io_in_Permutaiton_Sel_9 $end
+   $var wire 2 &P io_in_Permutaiton_Sel_7 $end
+   $var wire 2 &Q io_in_Permutaiton_Sel_8 $end
    $var wire 1 &v io_out_en_QGP $end
    $var wire 1 ', next $end
    $var wire 32 'C io_out_QSV_4 $end

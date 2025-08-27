@@ -30,8 +30,8 @@ class TopQSU(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd : Int, 
 
   val io = IO(new Bundle{
     val in_QSV              = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
-    val in_Permutation      = Input(MixedVec(Sequence.map(i => UInt(ceil(log(num_of_qubits - i)/log(2)).toInt.W))))
-    val in_Gate             = Input(UInt(5.W))
+    val in_Permutaiton_Sel  = Input(MixedVec(Sequence.map(i => UInt(ceil(log(num_of_qubits - i)/log(2)).toInt.W))))
+    val in_Gate_Sel         = Input(UInt(5.W))
     val in_Ugate            = Input(Vec(4, UInt(bit_width.W)))
     val in_applyGate        = Input(Bool()) //Applies the input gate onto the register: doesn't work when flag is 1.B
     val in_en_replaceQSV    = Input(Bool()) //Replaces Initial state and algorithm with above inputs
@@ -55,7 +55,7 @@ class TopQSU(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd : Int, 
   //Permutation inputs
   permutation.io.in_QSV     := QSR.io.out_QSV
   for(i <- 0 until loop){
-    permutation.io.in_sel(i) := io.in_Permutation(i)
+    permutation.io.in_sel(i) := io.in_Permutaiton_Sel(i)
   }
   //reverse permutation inputs
   reversePerm.io.in_QSV     := gatePool.io.out_QSV
@@ -73,9 +73,9 @@ class TopQSU(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd : Int, 
   manager.io.in_applygate   := io.in_applyGate
   manager.io.in_replaceQSV  := io.in_en_replaceQSV
   //hold sel
-  hold.io.in_sel_gate       := io.in_Gate
+  hold.io.in_sel_gate       := io.in_Gate_Sel
   for(i <- 0 until loop){
-    hold.io.in_sel_perm(i)  := io.in_Permutation(i)
+    hold.io.in_sel_perm(i)  := io.in_Permutaiton_Sel(i)
   }
   hold.io.in_hold           := manager.io.out_readyFlag
 
@@ -102,8 +102,8 @@ class TopQSU_ShftIO(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd 
 
   val io = IO(new Bundle {
     val in_QSV            = Input(Vec(pow(2, num_of_qubits).toInt, Bool()))
-    val in_Permutation    = Input(MixedVec(Sequence.map(i => UInt(ceil(log(num_of_qubits - i) / log(2)).toInt.W))))
-    val in_Gate           = Input(UInt(5.W))
+    val in_Permutaiton_Sel_Sel= Input(MixedVec(Sequence.map(i => UInt(ceil(log(num_of_qubits - i) / log(2)).toInt.W))))
+    val in_Gate_Sel_Sel       = Input(UInt(5.W))
     val in_Ugate          = Input(Vec(4, Bool()))
     val in_applyGate      = Input(Bool()) //Applies the input gate onto the register: doesn't work when flag is 1.B
     val in_en_replaceQSV  = Input(Bool()) //Replaces Initial state and algorithm with above inputs
@@ -111,10 +111,10 @@ class TopQSU_ShftIO(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd 
     val out_state         = Output(Vec(pow(2, num_of_qubits).toInt, Bool()))
     val out_flag          = Output(Bool()) //says when ready to apply next gate. While 1.B, applyGate will not take any input
     //add enable to control the input and ouput of the QSU
-    val in_feedEn         = Input(Bool())
-    val in_UgateEn        = Input(Bool())
-    val in_outfeedEn      = Input(Bool())
-    val in_noiseEn        = Input(Bool())
+    val in_feedEn         = Input(Bool()) //
+    val in_UgateEn        = Input(Bool()) //
+    val in_outfeedEn      = Input(Bool()) //
+    val in_noiseEn        = Input(Bool()) //
   })
 
   //help manages the inputs and outputs
@@ -134,8 +134,8 @@ class TopQSU_ShftIO(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd 
 
   //QSU Inputs
   QSU.io.in_QSV             := feedQSV.io.out
-  QSU.io.in_Permutation     := io.in_Permutation
-  QSU.io.in_Gate            := io.in_Gate
+  QSU.io.in_Permutaiton_Sel := io.in_Permutaiton_Sel_Sel
+  QSU.io.in_Gate_Sel        := io.in_Gate_Sel_Sel
   QSU.io.in_applyGate       := io.in_applyGate
   QSU.io.in_en_replaceQSV   := io.in_en_replaceQSV
   QSU.io.in_noise.asUInt    := feedNoise.io.out.asUInt
@@ -152,5 +152,5 @@ class TopQSU_ShftIO(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd 
 }
 
 object main extends App{
-  emitVerilog(new TopQSU_ShftIO(3,32,3,3,10))
+  emitVerilog(new TopQSU(4,32,3,3,10))
 }

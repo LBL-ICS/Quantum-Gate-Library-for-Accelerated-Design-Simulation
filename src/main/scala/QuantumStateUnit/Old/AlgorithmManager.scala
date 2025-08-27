@@ -18,8 +18,8 @@ import scala.math._
 class AlgorithmManager(num_of_qubits : Int, bit_width : Int, Alg_length : Int, num_of_gates : Int) extends Module{
   val io = IO(new Bundle{
     val in_QSV              = Input(Vec(pow(2,num_of_qubits).toInt, UInt(bit_width.W)))
-    val in_Permutation      = Input(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W)))
-    val in_Gate             = Input(Vec(Alg_length, UInt(ceil(log(num_of_gates)/log(2)).toInt.W)))
+    val in_Permutaiton_Sel      = Input(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W)))
+    val in_Gate_Sel             = Input(Vec(Alg_length, UInt(ceil(log(num_of_gates)/log(2)).toInt.W)))
     val in_en_newData       = Input(Bool()) //Replaces Initial state and algorithm with above inputs
     val in_en_next          = Input(Bool()) //For Updating the QSR
     val out_en_QSR          = Output(Bool()) //For updating QSV with new value from gate pool
@@ -88,8 +88,8 @@ class AlgorithmManager(num_of_qubits : Int, bit_width : Int, Alg_length : Int, n
   val selPermutation    = Reg(Vec(Alg_length, UInt(ceil(log(num_of_qubits)/log(2)).toInt.W)))
   //Register Inputs
   for(i <- 0 until Alg_length) {
-    quantumGate(i)    := Mux(en_new_values, io.in_Gate(i), quantumGate(i))
-    selPermutation(i) := Mux(en_new_values, io.in_Permutation(i), selPermutation(i))
+    quantumGate(i)    := Mux(en_new_values, io.in_Gate_Sel(i), quantumGate(i))
+    selPermutation(i) := Mux(en_new_values, io.in_Permutaiton_Sel(i), selPermutation(i))
   }
   //Mux Output from the Registers
   io.out_sel_gate       := quantumGate(cntEventsReg)
