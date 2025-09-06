@@ -24,10 +24,10 @@ The mux layer seperates each permutation from each other, so they could be indiv
 class permutationLayer(val num_of_qubits: Int, val bit_width: Int) extends Module {
   val io = IO(new Bundle {
     val in_QSV = Input(Vec(pow(2, num_of_qubits).toInt, UInt(bit_width.W))) // n input channels (bw bits each)
-    val in_sel = Input(UInt(ceil(log(num_of_qubits)/log(2)).toInt.W)) // Routing control signals
+    val in_sel = Input(UInt(log2Ceil(num_of_qubits).W)) // Determine Selected Qubit
     val out_QSV = Output(Vec(pow(2, num_of_qubits).toInt, UInt(bit_width.W))) // n output channels
   })
-
+      //...
   val muxLayer1 = Module(new muxLayer(num_of_qubits, bit_width))
 
   muxLayer1.io.in_sel := io.in_sel

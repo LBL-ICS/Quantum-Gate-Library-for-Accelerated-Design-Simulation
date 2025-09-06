@@ -148,9 +148,9 @@ class TopQSU_ShftIO(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd 
   //Output
   io.out_state              := outfeed.io.out
   io.out_flag               := QSU.io.out_flag
-
 }
 
 object main extends App{
+  //TopQSU(num_of_qubits : Int, bit_width : Int, mult_pd : Int, add_pd : Int, L : Int)
   emitVerilog(new TopQSU(4,32,3,3,10))
 }

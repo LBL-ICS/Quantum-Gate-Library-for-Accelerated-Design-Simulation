@@ -1,11 +1,11 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.OneQubitQSU_Test, org.scalatest.tools.Framework$$anon$1@743a1f3f, false, [SuiteSelector])[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mOneQubitQSU_Test:[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(QSU_Test.OneQubitMeasure_Test, org.scalatest.tools.Framework$$anon$1@38c11cff, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mOneQubitMeasure_Test:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mQSU[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Do_A_Thing[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 29 seconds, 648 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Measure_1Qubit[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 27 seconds, 693 milliseconds.[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 1[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.OneQubitQSU_Test[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QSU_Test.OneQubitMeasure_Test[0m

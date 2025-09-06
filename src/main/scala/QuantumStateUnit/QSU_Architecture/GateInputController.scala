@@ -29,7 +29,7 @@ class QSUController extends Module {
    */
   val en_QGP        = RegInit(0.B)
   en_QGP           := en_QGP || (io.in_applygate & !en_QGP & !io.in_valid)
-  io.out_en_QGP    := en_QGP
+  io.out_en_QGP    := ShiftRegister(en_QGP, 1) //Permutation has a delay of 1 clock cycle
   io.out_readyFlag := !en_QGP && !io.in_valid
 
   /*out_update_QSR will follow the following traits:

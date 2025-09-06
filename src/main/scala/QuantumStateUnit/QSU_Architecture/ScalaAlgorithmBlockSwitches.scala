@@ -17,21 +17,26 @@ class StackedPermutationSwitchGrids(val num_of_qubits : Int, val bit_width : Int
   })
   //contains the three permutation layers
 
+  //Initial Calls
   val permutation = permutation_Seq.map { i =>
     val s = Module(new PermutationSwitchGrid(num_of_qubits, bit_width, permutation_Seq(i)))
     s //I don't know why it needs to be here, but it's here
   }
+  val regOut = Reg(Vec(pow(2, num_of_qubits).toInt, UInt(bit_width.W)))
 
   //Connecting Layer to Layer
   for(num_of_perm <- 0 until permutation_Seq.length + 1){ //plus one is the io.input/io.output QSV
     if(num_of_perm == 0) {
       permutation(0).io.in_QSV := io.in_QSV
     } else if(num_of_perm == permutation_Seq.length) {
-      io.out_QSV := permutation(num_of_perm - 1).io.out_QSV
+      regOut := permutation(num_of_perm - 1).io.out_QSV
     } else {
       permutation(num_of_perm).io.in_QSV := permutation(num_of_perm - 1).io.out_QSV
     }
   }
+
+  //Output
+  io.out_QSV := regOut
 
   //select
   for(num_of_permutations <- 0 until permutation_Seq.length) {

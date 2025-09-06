@@ -63,6 +63,7 @@ module QSUController(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\
 );
 
   reg en_QGP;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:30:30
+  reg io_out_en_QGP_r;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:32:36
   reg prev;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:43:28
   reg delayUpdate;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:48:34
   always @(posedge clock) begin	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7
@@ -77,6 +78,7 @@ module QSUController(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\
         en_QGP <= en_QGP | io_in_applygate & ~en_QGP & ~io_in_valid;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:30:30, :31:{30,52,60,62}
       prev <= io_in_valid;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:43:28
     end
+    io_out_en_QGP_r <= en_QGP;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:30:30, :32:36
     delayUpdate <= en_QGP & io_in_valid & ~prev;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:30:30, :43:28, :48:34, :49:{43,45}
   end // always @(posedge)
   `ifdef ENABLE_INITIAL_REG_	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7
@@ -91,8 +93,9 @@ module QSUController(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\
       `ifdef RANDOMIZE_REG_INIT	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7
         _RANDOM[/*Zero width*/ 1'b0] = `RANDOM;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7
         en_QGP = _RANDOM[/*Zero width*/ 1'b0][0];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30
-        prev = _RANDOM[/*Zero width*/ 1'b0][1];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :43:28
-        delayUpdate = _RANDOM[/*Zero width*/ 1'b0][2];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :48:34
+        io_out_en_QGP_r = _RANDOM[/*Zero width*/ 1'b0][1];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :32:36
+        prev = _RANDOM[/*Zero width*/ 1'b0][2];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :43:28
+        delayUpdate = _RANDOM[/*Zero width*/ 1'b0][3];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :48:34
       `endif // RANDOMIZE_REG_INIT
     end // initial
     `ifdef FIRRTL_AFTER_INITIAL	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7
@@ -101,7 +104,7 @@ module QSUController(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\
   `endif // ENABLE_INITIAL_REG_
   assign io_out_update_QSR = delayUpdate | ~en_QGP & io_in_replaceQSV;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :31:52, :48:34, :50:{37,49}
   assign io_out_replaceQSV = ~en_QGP & io_in_replaceQSV;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :31:52, :51:33
-  assign io_out_en_QGP = en_QGP;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30
+  assign io_out_en_QGP = io_out_en_QGP_r;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :32:36
   assign io_out_readyFlag = ~en_QGP & ~io_in_valid;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\GateInputController.scala:8:7, :30:30, :31:{52,62}, :33:31
 endmodule
 
@@ -2011,14 +2014,14 @@ module WireLayer(	// \\src\\main\\scala\\QuantumStateUnit\\OtherComponents\\Wire
   assign io_output_1 = io_input_1;	// \\src\\main\\scala\\QuantumStateUnit\\OtherComponents\\WireLayer\\WireLayer.scala:6:7
 endmodule
 
-module PSGtarget0(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:72:7
-  input  [31:0] io_in_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:73:14
-                io_in_QSV_1,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:73:14
-  output [31:0] io_out_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:73:14
-                io_out_QSV_1	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:73:14
+module PSGtarget0(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:77:7
+  input  [31:0] io_in_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:78:14
+                io_in_QSV_1,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:78:14
+  output [31:0] io_out_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:78:14
+                io_out_QSV_1	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:78:14
 );
 
-  WireLayer wireL_0 (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:80:47
+  WireLayer wireL_0 (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:85:47
     .io_input_0  (io_in_QSV_0),
     .io_input_1  (io_in_QSV_1),
     .io_output_0 (io_out_QSV_0),
@@ -2026,50 +2029,82 @@ module PSGtarget0(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\Sc
   );
 endmodule
 
-module PermutationSwitchGrid(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:45:7
-  input  [31:0] io_in_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:46:14
-                io_in_QSV_1,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:46:14
-  output [31:0] io_out_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:46:14
-                io_out_QSV_1	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:46:14
+module PermutationSwitchGrid(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:50:7
+  input  [31:0] io_in_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:51:14
+                io_in_QSV_1,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:51:14
+  output [31:0] io_out_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:51:14
+                io_out_QSV_1	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:51:14
 );
 
-  wire [31:0] _switchGrid_io_out_QSV_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:55:32
-  wire [31:0] _switchGrid_io_out_QSV_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:55:32
-  wire [31:0] _tieVectorLayer_io_out_QSV_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:53:32
-  wire [31:0] _tieVectorLayer_io_out_QSV_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:53:32
-  tieVecLayer tieVectorLayer (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:53:32
+  wire [31:0] _switchGrid_io_out_QSV_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:60:32
+  wire [31:0] _switchGrid_io_out_QSV_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:60:32
+  wire [31:0] _tieVectorLayer_io_out_QSV_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:58:32
+  wire [31:0] _tieVectorLayer_io_out_QSV_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:58:32
+  tieVecLayer tieVectorLayer (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:58:32
     .io_in_QSV_0  (io_in_QSV_0),
     .io_in_QSV_1  (io_in_QSV_1),
     .io_out_QSV_0 (_tieVectorLayer_io_out_QSV_0),
     .io_out_QSV_1 (_tieVectorLayer_io_out_QSV_1)
   );
-  untieVecLayer untieVectorLayer (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:54:32
-    .io_in_QSV_0  (_switchGrid_io_out_QSV_0),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:55:32
-    .io_in_QSV_1  (_switchGrid_io_out_QSV_1),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:55:32
+  untieVecLayer untieVectorLayer (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:59:32
+    .io_in_QSV_0  (_switchGrid_io_out_QSV_0),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:60:32
+    .io_in_QSV_1  (_switchGrid_io_out_QSV_1),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:60:32
     .io_out_QSV_0 (io_out_QSV_0),
     .io_out_QSV_1 (io_out_QSV_1)
   );
-  PSGtarget0 switchGrid (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:55:32
-    .io_in_QSV_0  (_tieVectorLayer_io_out_QSV_0),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:53:32
-    .io_in_QSV_1  (_tieVectorLayer_io_out_QSV_1),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:53:32
+  PSGtarget0 switchGrid (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:60:32
+    .io_in_QSV_0  (_tieVectorLayer_io_out_QSV_0),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:58:32
+    .io_in_QSV_1  (_tieVectorLayer_io_out_QSV_1),	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:58:32
     .io_out_QSV_0 (_switchGrid_io_out_QSV_0),
     .io_out_QSV_1 (_switchGrid_io_out_QSV_1)
   );
 endmodule
 
 module StackedPermutationSwitchGrids(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+  input         clock,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
   input  [31:0] io_in_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:12:14
                 io_in_QSV_1,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:12:14
   output [31:0] io_out_QSV_0,	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:12:14
                 io_out_QSV_1	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:12:14
 );
 
-  PermutationSwitchGrid permutation_0 (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:21:19
+  wire [31:0] _permutation_0_io_out_QSV_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:22:19
+  wire [31:0] _permutation_0_io_out_QSV_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:22:19
+  reg  [31:0] regOut_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:25:19
+  reg  [31:0] regOut_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:25:19
+  always @(posedge clock) begin	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+    regOut_0 <= _permutation_0_io_out_QSV_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:22:19, :25:19
+    regOut_1 <= _permutation_0_io_out_QSV_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:22:19, :25:19
+  end // always @(posedge)
+  `ifdef ENABLE_INITIAL_REG_	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+    `ifdef FIRRTL_BEFORE_INITIAL	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+      `FIRRTL_BEFORE_INITIAL	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+    `endif // FIRRTL_BEFORE_INITIAL
+    initial begin	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+      automatic logic [31:0] _RANDOM[0:1];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+      `ifdef INIT_RANDOM_PROLOG_	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+        `INIT_RANDOM_PROLOG_	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+      `endif // INIT_RANDOM_PROLOG_
+      `ifdef RANDOMIZE_REG_INIT	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+        for (logic [1:0] i = 2'h0; i < 2'h2; i += 2'h1) begin
+          _RANDOM[i[0]] = `RANDOM;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+        end	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+        regOut_0 = _RANDOM[1'h0];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7, :25:19
+        regOut_1 = _RANDOM[1'h1];	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7, :25:19
+      `endif // RANDOMIZE_REG_INIT
+    end // initial
+    `ifdef FIRRTL_AFTER_INITIAL	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+      `FIRRTL_AFTER_INITIAL	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7
+    `endif // FIRRTL_AFTER_INITIAL
+  `endif // ENABLE_INITIAL_REG_
+  PermutationSwitchGrid permutation_0 (	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:22:19
     .io_in_QSV_0  (io_in_QSV_0),
     .io_in_QSV_1  (io_in_QSV_1),
-    .io_out_QSV_0 (io_out_QSV_0),
-    .io_out_QSV_1 (io_out_QSV_1)
+    .io_out_QSV_0 (_permutation_0_io_out_QSV_0),
+    .io_out_QSV_1 (_permutation_0_io_out_QSV_1)
   );
+  assign io_out_QSV_0 = regOut_0;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7, :25:19
+  assign io_out_QSV_1 = regOut_1;	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\ScalaAlgorithmBlockSwitches.scala:11:7, :25:19
 endmodule
 
 module QuantumStateRegister(	// \\src\\main\\scala\\QuantumStateUnit\\QSU_Architecture\\QuantumStateRegister.scala:28:7
@@ -2213,12 +2248,14 @@ module TopQSU16bit_1qubit(	// \\src\\main\\scala\\QuantumStateUnit\\Top_QSU.scal
     .io_out_QSV_1  (_gatePool_io_out_QSV_1)
   );
   StackedPermutationSwitchGrids permutation (	// \\src\\main\\scala\\QuantumStateUnit\\Top_QSU.scala:45:27
+    .clock        (clock),
     .io_in_QSV_0  (_QSR_io_out_QSV_0),	// \\src\\main\\scala\\QuantumStateUnit\\Top_QSU.scala:47:27
     .io_in_QSV_1  (_QSR_io_out_QSV_1),	// \\src\\main\\scala\\QuantumStateUnit\\Top_QSU.scala:47:27
     .io_out_QSV_0 (_permutation_io_out_QSV_0),
     .io_out_QSV_1 (_permutation_io_out_QSV_1)
   );
   StackedPermutationSwitchGrids reversePerm (	// \\src\\main\\scala\\QuantumStateUnit\\Top_QSU.scala:46:27
+    .clock        (clock),
     .io_in_QSV_0  (_gatePool_io_out_QSV_0),	// \\src\\main\\scala\\QuantumStateUnit\\Top_QSU.scala:44:27
     .io_in_QSV_1  (_gatePool_io_out_QSV_1),	// \\src\\main\\scala\\QuantumStateUnit\\Top_QSU.scala:44:27
     .io_out_QSV_0 (_reversePerm_io_out_QSV_0),

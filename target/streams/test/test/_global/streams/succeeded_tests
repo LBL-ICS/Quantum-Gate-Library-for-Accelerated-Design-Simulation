@@ -1,5 +1,8 @@
 #Successful Tests
-#Tue Aug 26 20:20:00 CDT 2025
+#Fri Sep 05 21:45:27 CDT 2025
+QSU_Test.TwoQubitMeasure_Test=1756505497133
 QSU_Test.QSU_Architecture.Permutation_Test.InitialSwitch0_Test=1756180722714
 FPU_Test.TestFPSqrt=1756180678354
+QSU_Test.ThreeQubitMeasure_Test=1756505700574
 QSU_Test.OneQubitQSU_Test=1756257600104
+QSU_Test.OneQubitMeasure_Test=1757126727682
